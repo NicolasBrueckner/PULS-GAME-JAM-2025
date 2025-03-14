@@ -99,6 +99,24 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shockwave"",
+                    ""type"": ""Button"",
+                    ""id"": ""f7201d8e-9a72-4013-a030-0c98d9a80204"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Bash_Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""e993661c-a295-4922-97f7-f05f8164aca3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -156,6 +174,28 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe371274-25eb-4dfb-b08f-8eb185a605a7"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shockwave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f35efea5-2b21-48f0-828b-4e8c95726516"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bash_Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -165,6 +205,8 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
+        m_Gameplay_Shockwave = m_Gameplay.FindAction("Shockwave", throwIfNotFound: true);
+        m_Gameplay_Bash_Dash = m_Gameplay.FindAction("Bash_Dash", throwIfNotFound: true);
     }
 
     ~@PlayerInputs()
@@ -246,6 +288,8 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Move;
+    private readonly InputAction m_Gameplay_Shockwave;
+    private readonly InputAction m_Gameplay_Bash_Dash;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -261,6 +305,14 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/Move".
         /// </summary>
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Shockwave".
+        /// </summary>
+        public InputAction @Shockwave => m_Wrapper.m_Gameplay_Shockwave;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Bash_Dash".
+        /// </summary>
+        public InputAction @Bash_Dash => m_Wrapper.m_Gameplay_Bash_Dash;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -290,6 +342,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Shockwave.started += instance.OnShockwave;
+            @Shockwave.performed += instance.OnShockwave;
+            @Shockwave.canceled += instance.OnShockwave;
+            @Bash_Dash.started += instance.OnBash_Dash;
+            @Bash_Dash.performed += instance.OnBash_Dash;
+            @Bash_Dash.canceled += instance.OnBash_Dash;
         }
 
         /// <summary>
@@ -304,6 +362,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Shockwave.started -= instance.OnShockwave;
+            @Shockwave.performed -= instance.OnShockwave;
+            @Shockwave.canceled -= instance.OnShockwave;
+            @Bash_Dash.started -= instance.OnBash_Dash;
+            @Bash_Dash.performed -= instance.OnBash_Dash;
+            @Bash_Dash.canceled -= instance.OnBash_Dash;
         }
 
         /// <summary>
@@ -351,5 +415,19 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Shockwave" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnShockwave(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Bash_Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBash_Dash(InputAction.CallbackContext context);
     }
 }

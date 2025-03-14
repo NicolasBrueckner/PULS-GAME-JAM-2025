@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 #endregion
 
-public class MovementBehaviour : MonoBehaviour
+public class PlayerBehaviour : MonoBehaviour
 {
 	public float moveSpeed;
 
