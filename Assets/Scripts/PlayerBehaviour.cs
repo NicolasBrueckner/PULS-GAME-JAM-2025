@@ -5,13 +5,22 @@ using UnityEngine.InputSystem;
 
 #endregion
 
+
+//only for movement an abilities
+[ RequireComponent( typeof( Rigidbody2D ) ) ]
 public class PlayerBehaviour : MonoBehaviour
 {
 	public float moveSpeed;
 
+	private Rigidbody2D _rb2d;
 	private Vector3 _bufferedMovement;
 
 	private PlayerInputEventManager _piem => PlayerInputEventManager.Instance;
+
+	private void Awake()
+	{
+		_rb2d = GetComponent<Rigidbody2D>();
+	}
 
 	private void Start()
 	{
@@ -19,9 +28,9 @@ public class PlayerBehaviour : MonoBehaviour
 		_piem.MoveCanceled += OnMoveCanceledReceived;
 	}
 
-	private void Update()
+	private void FixedUpdate()
 	{
-		transform.position += _bufferedMovement * moveSpeed * Time.deltaTime;
+		_rb2d.linearVelocity = _bufferedMovement;
 	}
 
 	private void OnMovePerformedReceived( InputAction.CallbackContext ctx )
@@ -36,6 +45,6 @@ public class PlayerBehaviour : MonoBehaviour
 
 	private void UpdateBufferedMovement( Vector2 input )
 	{
-		_bufferedMovement = input;
+		_bufferedMovement = input * moveSpeed;
 	}
 }
