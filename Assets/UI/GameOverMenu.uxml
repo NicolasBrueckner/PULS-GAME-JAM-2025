@@ -1,0 +1,11 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement name="Background" style="flex-grow: 1;">
+        <engine:VisualElement name="MessageContainer" style="flex-grow: 1; justify-content: center; align-items: center;">
+            <engine:Label text="Game Over" name="GameOverLabel" style="font-size: 30px;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="ButtonContainer" style="flex-grow: 1; justify-content: center; align-items: stretch; padding-left: 20%; padding-right: 20%;">
+            <engine:Button text="Button" name="RestartButton" />
+            <engine:Button text="Button" name="ExitButton" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
