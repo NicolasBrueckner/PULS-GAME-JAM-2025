@@ -12,10 +12,14 @@ public class GameplayEventManager : MonoBehaviour
 
 	public event Action PlayerHit;
 
+	public event Action PlayerExecute;
+
 	private void Awake()
 	{
 		Instance = CreateSingleton( Instance, gameObject );
 	}
 
 	public void OnPlayerHit() => PlayerHit?.Invoke();
+
+	public void OnPlayerExecute() => PlayerExecute?.Invoke();
 }
