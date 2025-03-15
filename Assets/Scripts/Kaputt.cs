@@ -23,16 +23,15 @@ public static class Kaputt
 		return instance;
 	}
 
-    public static void SetActiveByName(string objectName, bool isActive)
-    {
-        GameObject obj = GameObject.Find(objectName);
-        if (obj != null)
-        {
-            obj.SetActive(isActive);
-        }
-        else
-        {
-            Debug.LogWarning("GameObject with name " + objectName + " not found.");
-        }
-    }
+	public static bool IsInLayerMask( GameObject gameObject, LayerMask layerMask ) =>
+		( layerMask & ( 1 << gameObject.layer ) ) != 0;
+
+	public static void SetActiveByName( string objectName, bool isActive )
+	{
+		GameObject obj = GameObject.Find( objectName );
+		if( obj != null )
+			obj.SetActive( isActive );
+		else
+			Debug.LogWarning( "GameObject with name " + objectName + " not found." );
+	}
 }

@@ -180,6 +180,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5312291899415094844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01dc421e9e03294492a4ee4934c6f77, type: 3}
+  m_Script: {fileID: 11500000, guid: 3af479a36f6463e4797c96273e98a738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1536
+  minSpeed: 4
+  maxSpeed: 9
+  minAngle: 30
+  maxAngle: 150
+  outOfRangeSqrDistance: 2500

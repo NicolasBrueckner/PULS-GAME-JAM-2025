@@ -41,10 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 378407688293792475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48ed0c444a0447b4b9ecb86049d26440, type: 3}
+  m_Script: {fileID: 11500000, guid: 3374ffdb079259742aefca03e574aed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 5312291899415094844, guid: 27ea521cead987d47bd4614483678751, type: 3}
   poolSize: 10
   projectileSpeed: 10
   fireRate: 1
+  angleVariance: 20
