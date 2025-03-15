@@ -22,6 +22,7 @@ public class SceneScrollManager : MonoBehaviour
 	public GameObject dampLevel1;
 	public GameObject dampLevel2;
 	public GameObject dampLevel3;
+	public GameObject mainCamera;
 
 	private float screenWidth;
 	private Vector3 initialCloudPosition;
@@ -65,21 +66,17 @@ public class SceneScrollManager : MonoBehaviour
 		float scrollSpeed = Mathf.Lerp( minLevelScrollSpeed, maxLevelScrollSpeed, speedFactor );
 
 		if( movementInput.x > 0 || minLevelScrollSpeed > 0 )
-			foreach( Transform child in levelControllerGroup.transform )
-			{
-				float damping = 1.0f;
-				if( child.name == "DampLevel0" ) damping = 1.0f;
-				else if( child.name == "DampLevel1" ) damping = 1.0f - dampingFactor;
-				else if( child.name == "DampLevel2" ) damping = 1.0f - 2 * dampingFactor;
-				else if( child.name == "DampLevel3" ) damping = 1.0f - 3 * dampingFactor;
-
-				child.position -= new Vector3( scrollSpeed * damping * Time.deltaTime, 0, 0 );
-			}
+		{
+            dampLevel0.transform.position -= new Vector3(scrollSpeed * (1.0f) * Time.deltaTime, 0, 0);
+            dampLevel1.transform.position -= new Vector3(scrollSpeed * (1.0f - dampingFactor) * Time.deltaTime, 0, 0);
+            dampLevel2.transform.position -= new Vector3(scrollSpeed * (1.0f - 2 * dampingFactor) * Time.deltaTime, 0, 0);
+            dampLevel3.transform.position -= new Vector3(scrollSpeed * (1.0f - 3 * dampingFactor) * Time.deltaTime, 0, 0);
+        }
 	}
 
 	private bool ClampLevelToExit()
 	{
-		float exitScreenEdge = Camera.main.transform.position.x + screenWidth - screenPadding;
+		float exitScreenEdge = mainCamera.transform.position.x + screenWidth - screenPadding;
 		if( levelExit.position.x < exitScreenEdge ) return true;
 		return false;
 	}
