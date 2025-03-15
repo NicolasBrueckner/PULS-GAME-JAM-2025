@@ -1,14 +1,20 @@
 #region
 
+using System.Collections;
 using UnityEngine;
+using static Kaputt;
 
 #endregion
 
-//[RequireComponent(typeof(SphereCollider))]
+[ RequireComponent( typeof( Collider ) ) ]
 public class Shockwave : MonoBehaviour, IAbility
 {
-	public float range;
+	public float cooldown;
 	public LayerMask affectedLayers;
+
+	private bool _isDestroying;
+
+	private Coroutine _shockwaveCooldownCoroutine;
 
 	private PlayerInputEventManager _piem => PlayerInputEventManager.Instance;
 	private GameplayEventManager _gem => GameplayEventManager.Instance;
@@ -18,13 +24,36 @@ public class Shockwave : MonoBehaviour, IAbility
 		_piem.ShockwavePerformed += OnShockwavePerformedReceived;
 	}
 
+	private void OnTriggerStay( Collider other )
+	{
+		if( !_isDestroying )
+			return;
+
+		if( !IsInLayerMask( other.gameObject, affectedLayers ) )
+			return;
+
+		IDestroyable d = other.GetComponent<IDestroyable>();
+		d?.DestroyInterfaceMember();
+	}
+
 	private void OnShockwavePerformedReceived()
 	{
-		Collider[] hits = Physics.OverlapSphere( transform.position, range );
+		_isDestroying = true;
+		_shockwaveCooldownCoroutine ??= StartCoroutine( ShockwaveCooldown() );
+	}
 
-		foreach( Collider hit in hits )
-		{
-		}
+	private IEnumerator ShockwaveCooldown()
+	{
+		yield return new WaitForFixedUpdate();
+
+		_isDestroying = false;
+
+		float timer = cooldown;
+
+		while( ( timer -= Time.fixedDeltaTime ) > 0 )
+			yield return new WaitForFixedUpdate();
+
+		_shockwaveCooldownCoroutine = null;
 	}
 
 	public void ChangeActivityStatus( bool isActive )

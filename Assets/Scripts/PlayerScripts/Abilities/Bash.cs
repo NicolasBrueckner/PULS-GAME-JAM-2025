@@ -2,12 +2,13 @@
 
 using System.Collections;
 using UnityEngine;
+using static Kaputt;
 
 #endregion
 
+[ RequireComponent( typeof( Collider ) ) ]
 public class Bash : MonoBehaviour, IAbility
 {
-	public float bashFactor;
 	public float bashDuration;
 	public float bashCooldown;
 	public LayerMask affectedLayers;
@@ -23,13 +24,16 @@ public class Bash : MonoBehaviour, IAbility
 		_piem.BashDashPerformed += OnBashDashPerformedReceived;
 	}
 
-	private void OnTriggerEnter( Collider other )
+	private void OnTriggerStay( Collider other )
 	{
 		if( !_isBashing )
 			return;
 
-		IDamageable d = other.GetComponent<IDamageable>();
-		d?.DestroyObject();
+		if( !IsInLayerMask( other.gameObject, affectedLayers ) )
+			return;
+
+		IDestroyable d = other.GetComponent<IDestroyable>();
+		d?.DestroyInterfaceMember();
 	}
 
 	private void OnBashDashPerformedReceived()

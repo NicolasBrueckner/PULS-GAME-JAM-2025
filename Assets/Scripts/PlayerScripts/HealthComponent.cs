@@ -10,7 +10,7 @@ public class HealthComponent : MonoBehaviour
 {
 	public int maxHealth;
 	public int Health{ get; private set; }
-	public bool IsInvincible { get; private set; }
+	public bool IsInvincible{ get; private set; }
 
 	private GameplayEventManager _gem => GameplayEventManager.Instance;
 
@@ -27,10 +27,13 @@ public class HealthComponent : MonoBehaviour
 
 	private void OnPlayerHitReceived()
 	{
+		if( IsInvincible )
+			return;
+
 		TakeDamage( 1 );
 	}
 
-	private void OnPlayerInvincibleReceived(bool isInvincible)
+	private void OnPlayerInvincibleReceived( bool isInvincible )
 	{
 		IsInvincible = isInvincible;
 	}

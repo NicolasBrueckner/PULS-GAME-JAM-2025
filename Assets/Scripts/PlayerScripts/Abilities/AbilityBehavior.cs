@@ -1,22 +1,30 @@
 #region
 
+using System.Collections.Generic;
 using System.Linq;
-using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
 #endregion
 
-[ RequireComponent( typeof( Shockwave ) ) ]
-[ RequireComponent( typeof( Bash ) ) ]
-[ RequireComponent( typeof( Dash ) ) ]
 public class AbilityBehavior : MonoBehaviour
 {
-	public SerializedDictionary<IAbility, bool> abilities = new();
+	public GameObject shockWaveGameObject;
+	public GameObject bashObject;
+	public GameObject dashObject;
+
+	private Dictionary<IAbility, bool> _abilities;
 
 	private GameplayEventManager _gem => GameplayEventManager.Instance;
 
 	private void Start()
 	{
+		_abilities = new()
+		{
+			{ shockWaveGameObject.GetComponent<IAbility>(), false },
+			{ bashObject.GetComponent<IAbility>(), false },
+			{ dashObject.GetComponent<IAbility>(), false },
+		};
+
 		_gem.PlayerHit += OnPlayerHitReceived;
 		_gem.PlayerHeal += OnPlayerHealReceived;
 	}
@@ -26,12 +34,12 @@ public class AbilityBehavior : MonoBehaviour
 
 	private void ChangeNextAbilityStatus( bool isActive )
 	{
-		IAbility next = abilities.FirstOrDefault( pair => pair.Value != isActive ).Key;
+		IAbility next = _abilities.FirstOrDefault( pair => pair.Value != isActive ).Key;
 
 		if( next == null )
 			return;
 
 		next.ChangeActivityStatus( isActive );
-		abilities[ next ] = isActive;
+		_abilities[ next ] = isActive;
 	}
 }

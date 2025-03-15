@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9086331300267189991}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Loot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4650937087195438300}
   - component: {fileID: -8478554726097685552}
   - component: {fileID: 7276975829794447780}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ObstacleMedium
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -76,11 +76,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2494214884786537616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b9c6c3d805bb8549a7e8b7217e2cbba, type: 3}
+  m_Script: {fileID: 11500000, guid: 81593ead423077d489d92b4d0650f13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hasHealthUp: 0
-  damageOnCollision: 1
 --- !u!65 &7276975829794447780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -114,7 +113,7 @@ GameObject:
   - component: {fileID: 4549599691085698006}
   - component: {fileID: 111987385600736059}
   - component: {fileID: 3958611600197113902}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MyMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4011845126889737269}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,8 +294,16 @@ PrefabInstance:
       value: HealthUp
       objectReference: {fileID: 0}
     - target: {fileID: 5906180955175318499, guid: bdbbfc246bdbf2c4e80e28abeb59edc6, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906180955175318499, guid: bdbbfc246bdbf2c4e80e28abeb59edc6, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675756067178569476, guid: bdbbfc246bdbf2c4e80e28abeb59edc6, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
