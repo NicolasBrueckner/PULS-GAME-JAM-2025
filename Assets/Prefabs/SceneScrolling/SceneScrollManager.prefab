@@ -47,14 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftCloudControllerGroup: {fileID: 0}
   levelControllerGroup: {fileID: 0}
-  minLevelScrollSpeed: 0
-  maxLevelScrollSpeed: 20
-  leftCloudEnlargeSpeed: 2
-  leftCloudRedactSpeed: 1
+  minLevelScrollSpeed: 0.015
+  maxLevelScrollSpeed: 5
+  leftCloudEnlargeSpeed: 1
+  leftCloudRedactSpeed: 1.8
   dampingFactor: 0.2
   levelExit: {fileID: 0}
   player: {fileID: 0}
   screenPadding: 0.5
+  dampLevel0: {fileID: 0}
+  dampLevel1: {fileID: 0}
+  dampLevel2: {fileID: 0}
+  dampLevel3: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!1 &7551099299684879628
 GameObject:
   m_ObjectHideFlags: 0
