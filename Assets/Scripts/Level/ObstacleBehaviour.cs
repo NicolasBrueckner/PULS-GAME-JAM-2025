@@ -1,10 +1,10 @@
 using UnityEngine;
 using static Kaputt;
+using static IDamageable;
 
-public class ObstacleBehaviour : MonoBehaviour
+public class ObstacleBehaviour : MonoBehaviour, IDamageable
 {
 	public bool hasHealthUp = false;
-	// public float damageOnCollision = 1.0f;
 
 	void Start()
 	{
@@ -16,17 +16,15 @@ public class ObstacleBehaviour : MonoBehaviour
 	{
 		if (collision.collider.CompareTag("Player"))
 		{
-			// TODO: irgendwie hit type unterscheiden
 			GameplayEventManager.Instance?.OnPlayerHit();
-			OnDestroyed();
 		}     
 	}
 
-	private void OnDestroyed()
-	{
-		// TODO: Animation für Übergang oder so?
-		SetActiveByName("Obstacle", false);
+    public void DestroyObject()
+    {
+        // TODO: Animation für Übergang oder so?
+        SetActiveByName("Obstacle", false);
 		if (hasHealthUp)
-			SetActiveByName("Loot", true);
-	}
+			GameplayEventManager.Instance?.OnPlayerHeal();
+    }
 }
