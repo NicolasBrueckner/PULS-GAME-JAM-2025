@@ -31,6 +31,6 @@ public class ExecutionerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("enter");
-        GameplayEventManager.Instance?.OnPlayerExecute();
+        //GameplayEventManager.Instance?.OnPlayerExecute();
     }
 }
