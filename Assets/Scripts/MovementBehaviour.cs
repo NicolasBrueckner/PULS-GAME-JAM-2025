@@ -13,7 +13,7 @@ public class MovementBehaviour : MonoBehaviour
 	public float moveSpeed;
 	public GameObject movementBounds;
 
-	private Rigidbody2D _rb2d;
+	private Rigidbody _rb3d;
 	private Vector3 _bufferedMovement;
 	private float _currentMoveSpeed;
 
@@ -22,7 +22,7 @@ public class MovementBehaviour : MonoBehaviour
 
 	private void Awake()
 	{
-		_rb2d = GetComponent<Rigidbody2D>();
+		_rb3d = GetComponent<Rigidbody>();
 		_currentMoveSpeed = moveSpeed;
 	}
 
@@ -37,15 +37,15 @@ public class MovementBehaviour : MonoBehaviour
 	{
 		if( movementBounds != null )
 		{
-			Vector3 newPosition = _rb2d.position + ( Vector2 )_bufferedMovement * Time.fixedDeltaTime;
+			Vector3 newPosition = _rb3d.position + ( Vector3 )_bufferedMovement * Time.fixedDeltaTime;
 			if( IsWithinBounds( newPosition ) )
-				_rb2d.linearVelocity = _bufferedMovement;
+				_rb3d.linearVelocity = _bufferedMovement;
 			else
-				_rb2d.linearVelocity = Vector2.zero;
+				_rb3d.linearVelocity = Vector2.zero;
 		}
 		else
 		{
-			_rb2d.linearVelocity = _bufferedMovement;
+			_rb3d.linearVelocity = _bufferedMovement;
 		}
 	}
 
