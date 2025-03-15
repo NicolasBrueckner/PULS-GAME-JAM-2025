@@ -13,7 +13,15 @@ public class ObstacleBehaviour : MonoBehaviour, IDestroyable
 
 	private GameplayEventManager _gem => GameplayEventManager.Instance;
 
-	private void Awake()
+	private void Start()
+	{
+		if (hasHealthUp)
+			SetActiveByName("HealParticle" , true);
+		else
+            SetActiveByName("HealParticle", false);
+    }
+
+    private void Awake()
 	{
 		_playerLayer = 1 << LayerMask.NameToLayer( "Player" );
 	}
