@@ -52,6 +52,7 @@ public class MovementBehaviour : MonoBehaviour
 
 	private void UpdateBufferedMovement( Vector2 input )
 	{
-		_bufferedMovement = input * _currentMoveSpeed;
+		Vector3 input3D = new Vector3( input.x, 0, input.y );
+		_bufferedMovement = input3D * _currentMoveSpeed;
 	}
 }

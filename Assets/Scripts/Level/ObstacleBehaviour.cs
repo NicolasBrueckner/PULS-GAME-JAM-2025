@@ -24,7 +24,7 @@ public class ObstacleBehaviour : MonoBehaviour
 
 	private void OnDestroyed()
 	{
-		// TODO: Animation f�r �bergang oder so?
+		// TODO: Animation für Übergang oder so?
 		SetActiveByName("Obstacle", false);
 		if (hasHealthUp)
 			SetActiveByName("Loot", true);
