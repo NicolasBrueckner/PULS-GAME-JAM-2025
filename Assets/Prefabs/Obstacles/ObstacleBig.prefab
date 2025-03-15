@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4650937087195438300}
   - component: {fileID: -8478554726097685552}
   - component: {fileID: 7276975829794447780}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ObstacleBig
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 4549599691085698006}
   - component: {fileID: 111987385600736059}
   - component: {fileID: 3958611600197113902}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VisualContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

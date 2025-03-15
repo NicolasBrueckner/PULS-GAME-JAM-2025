@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 public class MovementBehaviour : MonoBehaviour
 {
 	public float moveSpeed;
+	public float yAxisCorrectionFactor = 2;
 	private Vector3 _bufferedMovement;
 	private float _currentMoveSpeed;
 
@@ -52,7 +53,7 @@ public class MovementBehaviour : MonoBehaviour
 
 	private void UpdateBufferedMovement( Vector2 input )
 	{
-		Vector3 input3D = new Vector3( input.x, 0, input.y );
+		Vector3 input3D = new Vector3( input.x, 0, input.y * yAxisCorrectionFactor );
 		_bufferedMovement = input3D * _currentMoveSpeed;
 	}
 }
