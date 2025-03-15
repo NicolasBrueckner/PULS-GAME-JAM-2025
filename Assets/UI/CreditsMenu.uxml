@@ -1,6 +1,9 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement name="Background" style="flex-grow: 1;">
-        <engine:VisualElement name="CreditsContainer" style="flex-grow: 1; justify-content: center; align-items: stretch; align-self: center; align-content: stretch;">
+    <engine:VisualElement name="Background" style="flex-grow: 1; flex-direction: row;">
+        <engine:VisualElement name="BackButtonContainer" style="flex-grow: 1; align-self: flex-end;">
+            <engine:Button text="Back" name="BackButton" />
+        </engine:VisualElement>
+        <engine:VisualElement name="CreditsContainer" style="flex-grow: 1; justify-content: flex-start; align-items: center; align-self: flex-start; align-content: stretch;">
             <engine:VisualElement name="Credits_1_Container" style="flex-grow: 1; flex-direction: row;">
                 <engine:Label text="Role" name="RoleLabel" />
                 <engine:Label text="Cedric Steiert" name="NameLabel" />

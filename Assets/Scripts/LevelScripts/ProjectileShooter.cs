@@ -25,7 +25,6 @@ public class ProjectileShooter : MonoBehaviour
 
 	private void EnqueueProjectile( GameObject obj )
 	{
-		Debug.Log( "EnqueueProjectile" );
 		obj.SetActive( false );
 		obj.transform.position = transform.position;
 		_projectilePool.Enqueue( obj );
