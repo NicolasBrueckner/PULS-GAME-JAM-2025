@@ -1,79 +1,80 @@
+#region
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#endregion
+
 public class ProjectileShooter : MonoBehaviour
 {
-    public GameObject projectilePrefab; // Assign in Inspector
-    public int poolSize = 10; // Number of reusable projectiles
-    public float projectileSpeed = 10f;
-    public float fireRate = 1f; // Seconds between shots
-    public float angleVariance = 20f; // Max angle variation in degrees
+	public GameObject projectilePrefab;
+	public float frequency = 1f;
 
-    private Queue<GameObject> projectilePool;
-    private float nextFireTime;
+	private Queue<GameObject> _projectilePool;
 
-    void Start()
-    {
-        InitializePool();
-    }
+	private GameplayEventManager _gem => GameplayEventManager.Instance;
 
-    void Update()
-    {
-        if (Time.time >= nextFireTime)
-        {
-            ShootProjectiles();
-            nextFireTime = Time.time + fireRate;
-        }
-    }
+	private void Start()
+	{
+		_gem.ProjectileDeactivate += EnqueueProjectile;
 
-    void InitializePool()
-    {
-        projectilePool = new Queue<GameObject>();
+		InitializePool();
+		StartCoroutine( ShootCoroutine() );
+	}
 
-        for (int i = 0; i < poolSize; i++)
-        {
-            GameObject proj = Instantiate(projectilePrefab);
-            proj.SetActive(false);
-            projectilePool.Enqueue(proj);
-        }
-    }
+	private void EnqueueProjectile( GameObject obj )
+	{
+		Debug.Log( "EnqueueProjectile" );
+		obj.SetActive( false );
+		obj.transform.position = transform.position;
+		_projectilePool.Enqueue( obj );
+	}
 
-    void ShootProjectiles()
-    {
-        for (int i = 0; i < 3; i++) // Shoot 3 projectiles
-        {
-            GameObject proj = GetPooledProjectile();
-            if (proj != null)
-            {
-                proj.transform.position = transform.position;
-                proj.transform.rotation = Quaternion.identity;
+	private void InitializePool()
+	{
+		_projectilePool = new Queue<GameObject>();
 
-                // Generate a random angle variation (rightward with a spread)
-                float randomAngle = Random.Range(-angleVariance, angleVariance);
-                Vector3 direction = Quaternion.Euler(0, 0, randomAngle) * Vector3.right; // Rotate rightward direction
+		for( int i = 0; i < 10; i++ )
+		{
+			GameObject proj = Instantiate( projectilePrefab, transform.position, Quaternion.identity, transform );
 
-                proj.GetComponent<Rigidbody>().linearVelocity = direction.normalized * projectileSpeed;
-            }
-        }
-    }
+			proj.SetActive( false );
+			_projectilePool.Enqueue( proj );
+		}
+	}
 
-    GameObject GetPooledProjectile()
-    {
-        if (projectilePool.Count > 0)
-        {
-            GameObject proj = projectilePool.Dequeue();
-            proj.SetActive(true);
-            StartCoroutine(DisableProjectileAfterTime(proj, 2f)); // Disable after 2 seconds
-            return proj;
-        }
-        return null; // No available projectiles
-    }
+	private IEnumerator ShootCoroutine()
+	{
+		while( enabled )
+		{
+			ShootNextProjectile();
+			yield return new WaitForSeconds( frequency );
+		}
+	}
 
-    IEnumerator DisableProjectileAfterTime(GameObject proj, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        proj.SetActive(false);
-        projectilePool.Enqueue(proj);
-    }
+	private void ShootNextProjectile()
+	{
+		GameObject next;
+
+		if( _projectilePool.Count > 0 )
+		{
+			next = _projectilePool.Dequeue();
+		}
+		else
+		{
+			next = Instantiate( projectilePrefab, transform.position, Quaternion.identity, transform );
+			_projectilePool.Enqueue( next );
+		}
+
+		ActivateProjectile( next );
+	}
+
+	private static void ActivateProjectile( GameObject next )
+	{
+		ProjectileBehaviour nextProjectile = next.GetComponent<ProjectileBehaviour>();
+
+		next.SetActive( true );
+		nextProjectile.StartFlying();
+	}
 }

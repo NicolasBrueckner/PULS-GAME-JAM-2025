@@ -16,6 +16,7 @@ public class GameplayEventManager : MonoBehaviour
 	public event Action PlayerHeal;
 	public event Action<bool> PlayerInvincible;
 	public event Action<float> MoveSpeedChange;
+	public event Action<GameObject> ProjectileDeactivate;
 
 	private void Awake()
 	{
@@ -23,10 +24,11 @@ public class GameplayEventManager : MonoBehaviour
 	}
 
 
-	public void OnGameStarted()                         => GameStarted?.Invoke();
-	public void OnGameEnded()                           => GameEnded?.Invoke();
-	public void OnPlayerHit()                           => PlayerHit?.Invoke();
-	public void OnPlayerHeal()                          => PlayerHeal?.Invoke();
-	public void OnPlayerInvincible( bool isInvincible ) => PlayerInvincible?.Invoke( isInvincible );
-	public void OnMoveSpeedChange( float factor )       => MoveSpeedChange?.Invoke( factor );
+	public void OnGameStarted()                                 => GameStarted?.Invoke();
+	public void OnGameEnded()                                   => GameEnded?.Invoke();
+	public void OnPlayerHit()                                   => PlayerHit?.Invoke();
+	public void OnPlayerHeal()                                  => PlayerHeal?.Invoke();
+	public void OnPlayerInvincible( bool isInvincible )         => PlayerInvincible?.Invoke( isInvincible );
+	public void OnMoveSpeedChange( float factor )               => MoveSpeedChange?.Invoke( factor );
+	public void OnProjectileDeactivate( GameObject projectile ) => ProjectileDeactivate?.Invoke( projectile );
 }
