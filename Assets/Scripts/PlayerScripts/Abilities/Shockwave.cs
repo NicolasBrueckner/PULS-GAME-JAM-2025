@@ -13,6 +13,7 @@ public class Shockwave : MonoBehaviour, IAbility
 	public LayerMask affectedLayers;
 
 	private bool _isDestroying;
+	private bool _isDrawing;
 
 	private Coroutine _shockwaveCooldownCoroutine;
 
@@ -39,6 +40,7 @@ public class Shockwave : MonoBehaviour, IAbility
 	private void OnShockwavePerformedReceived()
 	{
 		_isDestroying = true;
+		_isDrawing = true;
 		_shockwaveCooldownCoroutine ??= StartCoroutine( ShockwaveCooldown() );
 	}
 
@@ -53,6 +55,7 @@ public class Shockwave : MonoBehaviour, IAbility
 		while( ( timer -= Time.fixedDeltaTime ) > 0 )
 			yield return new WaitForFixedUpdate();
 
+		_isDrawing = false;
 		_shockwaveCooldownCoroutine = null;
 	}
 
