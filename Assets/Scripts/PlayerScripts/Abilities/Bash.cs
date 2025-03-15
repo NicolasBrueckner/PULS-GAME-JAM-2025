@@ -12,6 +12,7 @@ public class Bash : MonoBehaviour, IAbility
 	public float bashCooldown;
 	public LayerMask affectedLayers;
 
+	private bool _isBashing;
 	private Coroutine _timedBashCoroutine;
 
 	private PlayerInputEventManager _piem => PlayerInputEventManager.Instance;
@@ -22,25 +23,38 @@ public class Bash : MonoBehaviour, IAbility
 		_piem.BashDashPerformed += OnBashDashPerformedReceived;
 	}
 
+	private void OnTriggerEnter( Collider other )
+	{
+		if( !_isBashing )
+			return;
+
+		IDamageable d = other.GetComponent<IDamageable>();
+		d?.DestroyObject();
+	}
+
 	private void OnBashDashPerformedReceived()
 	{
-		if(enabled)
-		_timedBashCoroutine ??= StartCoroutine( TimedBash() );
+		if( enabled )
+			_timedBashCoroutine ??= StartCoroutine( TimedBash() );
 	}
 
 	private IEnumerator TimedBash()
 	{
-		_gem.OnMoveSpeedChange( bashFactor );
+		_gem.OnPlayerInvincible( true );
+		_isBashing = true;
 
 		float timer = bashDuration;
 		while( ( timer -= Time.fixedDeltaTime ) > 0f )
 			yield return new WaitForFixedUpdate();
 
-		_gem.OnMoveSpeedChange( 1f );
+		_gem.OnPlayerInvincible( false );
+		_isBashing = false;
 
 		timer = bashCooldown;
 		while( ( timer -= Time.fixedDeltaTime ) > 0f )
 			yield return new WaitForFixedUpdate();
+
+		_timedBashCoroutine = null;
 	}
 
 	public void ChangeActivityStatus( bool isActive )

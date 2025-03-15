@@ -20,8 +20,8 @@ public class GameplayEventManager : MonoBehaviour
 		Instance = CreateSingleton( Instance, gameObject );
 	}
 
-	public void OnPlayerHit()                     => PlayerHit?.Invoke();
-	public void OnPlayerHeal()                    => PlayerHeal?.Invoke();
-	public void OnPlayerInvincible()              => PlayerInvincible?.Invoke( true );
-	public void OnMoveSpeedChange( float factor ) => MoveSpeedChange?.Invoke( factor );
+	public void OnPlayerHit()                           => PlayerHit?.Invoke();
+	public void OnPlayerHeal()                          => PlayerHeal?.Invoke();
+	public void OnPlayerInvincible( bool isInvincible ) => PlayerInvincible?.Invoke( isInvincible );
+	public void OnMoveSpeedChange( float factor )       => MoveSpeedChange?.Invoke( factor );
 }
