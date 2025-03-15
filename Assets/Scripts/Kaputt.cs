@@ -22,17 +22,4 @@ public static class Kaputt
 			Object.Destroy( gameObject );
 		return instance;
 	}
-
-    public static void SetActiveByName(string objectName, bool isActive)
-    {
-        GameObject obj = GameObject.Find(objectName);
-        if (obj != null)
-        {
-            obj.SetActive(isActive);
-        }
-        else
-        {
-            Debug.LogWarning("GameObject with name " + objectName + " not found.");
-        }
-    }
 }
