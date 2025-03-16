@@ -13,6 +13,7 @@ public class Bash : MonoBehaviour, IAbility
 
 	public float bashDuration;
 	public float bashCooldown;
+	public GameObject bashEffect;
 	public LayerMask affectedLayers;
 
 	private bool _isBashing;
@@ -24,6 +25,12 @@ public class Bash : MonoBehaviour, IAbility
 	private void Start()
 	{
 		_piem.BashDashPerformed += OnBashDashPerformedReceived;
+	}
+
+	private void OnDisable()
+	{
+		bashEffect.SetActive( false );
+		_timedBashCoroutine = null;
 	}
 
 	private void OnDestroy()
@@ -45,14 +52,17 @@ public class Bash : MonoBehaviour, IAbility
 
 	private void OnBashDashPerformedReceived()
 	{
-		if( enabled )
-			_timedBashCoroutine ??= StartCoroutine( TimedBash() );
+		if( !IsActive )
+			return;
+
+		_timedBashCoroutine ??= StartCoroutine( TimedBash() );
 	}
 
 	private IEnumerator TimedBash()
 	{
 		_gem.OnPlayerInvincible( true );
 		_isBashing = true;
+		bashEffect.SetActive( true );
 
 		float timer = bashDuration;
 		while( ( timer -= Time.fixedDeltaTime ) > 0f )
@@ -60,6 +70,7 @@ public class Bash : MonoBehaviour, IAbility
 
 		_gem.OnPlayerInvincible( false );
 		_isBashing = false;
+		bashEffect.SetActive( false );
 
 		timer = bashCooldown;
 		while( ( timer -= Time.fixedDeltaTime ) > 0f )

@@ -12,6 +12,7 @@ public class Dash : MonoBehaviour, IAbility
 	public float dashFactor;
 	public float dashDuration;
 	public float dashCooldown;
+	public GameObject dashEffect;
 
 	private Coroutine _timedDashCoroutine;
 
@@ -30,25 +31,29 @@ public class Dash : MonoBehaviour, IAbility
 
 	private void OnBashDashPerformedReceived()
 	{
-		_gem.OnPlayerHit();
+		if( !IsActive )
+			return;
 
-		if( enabled )
-			_timedDashCoroutine ??= StartCoroutine( TimedDash() );
+		_timedDashCoroutine ??= StartCoroutine( TimedDash() );
 	}
 
 	private IEnumerator TimedDash()
 	{
 		_gem.OnMoveSpeedChange( dashFactor );
+		dashEffect.SetActive( true );
 
 		float timer = dashDuration;
 		while( ( timer -= Time.fixedDeltaTime ) > 0f )
 			yield return new WaitForFixedUpdate();
 
 		_gem.OnMoveSpeedChange( 1f );
+		dashEffect.SetActive( false );
 
 		timer = dashCooldown;
 		while( ( timer -= Time.fixedDeltaTime ) > 0f )
 			yield return new WaitForFixedUpdate();
+
+		_timedDashCoroutine = null;
 	}
 
 	public void ChangeActivityStatus( bool isActive )
