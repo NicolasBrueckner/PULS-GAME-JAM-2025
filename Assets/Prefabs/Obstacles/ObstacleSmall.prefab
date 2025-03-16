@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHealthUp: 0
+  healEffect: {fileID: 7845874891920481157}
 --- !u!65 &7276975829794447780
 BoxCollider:
   m_ObjectHideFlags: 0
