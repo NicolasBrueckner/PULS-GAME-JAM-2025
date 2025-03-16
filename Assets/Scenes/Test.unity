@@ -493,6 +493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RuntimeManagerPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3081965358690612773, guid: 55845e621d819e942a8a0d48a0bd3822, type: 3}
+      propertyPath: runtimeSceneName
+      value: Scenes/LevelSamplura
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
