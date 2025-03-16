@@ -8,6 +8,7 @@ using static Kaputt;
 public class ObstacleBehaviour : MonoBehaviour, IDestroyable
 {
 	public bool hasHealthUp;
+	public GameObject healEffect;
 
 	private LayerMask _playerLayer;
 
@@ -15,7 +16,7 @@ public class ObstacleBehaviour : MonoBehaviour, IDestroyable
 
 	private void Start()
 	{
-		SetActiveByName( "HealParticle", hasHealthUp );
+		healEffect?.SetActive( hasHealthUp );
 	}
 
 	private void Awake()
