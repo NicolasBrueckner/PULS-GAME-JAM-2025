@@ -284,5 +284,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94fac81aabb66d479ddd043a5a6826a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageSound: {fileID: 8300000, guid: 8d1dacdd7d1c71140ac5876016b102ae, type: 3}
+  damageSound: {fileID: 8300000, guid: 618b40b35ca6d2248aee87539014195a, type: 3}
   audioSourceDamage: {fileID: 8174462565056482262}

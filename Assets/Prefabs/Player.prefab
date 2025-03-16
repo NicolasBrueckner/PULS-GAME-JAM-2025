@@ -48,6 +48,7 @@ MonoBehaviour:
   dashFactor: 1.7
   dashDuration: 2
   dashCooldown: 0.5
+  dashObject: {fileID: 0}
   dashEffect: {fileID: 8503955387965017596}
   dashSound: {fileID: 8300000, guid: 6d3f0eb06cf28f44a8deacc5c3080155, type: 3}
   audioSourceAbility: {fileID: 7047866255127453289}
@@ -101,7 +102,7 @@ MonoBehaviour:
   invincibilityDuration: 2
   hitEffect: {fileID: 4868669656864905801}
   healEffect: {fileID: 6926325474889362745}
-  hitProjectileSound: {fileID: 8300000, guid: c6a4990b43d3ef948bea563e8985cae3, type: 3}
+  hitProjectileSound: {fileID: 8300000, guid: 744691f96414947408636c5971678507, type: 3}
   hitObstacleSound: {fileID: 8300000, guid: c6a4990b43d3ef948bea563e8985cae3, type: 3}
   healSound: {fileID: 8300000, guid: c5effce5e7814f64795f3e3a51bd11e2, type: 3}
   audioSource: {fileID: 2451282316676591482}
@@ -194,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 8
+  shockwaveObject: {fileID: 0}
   shockwaveEffect: {fileID: 8674701474501564013}
   affectedLayers:
     serializedVersion: 2
@@ -792,6 +794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bashDuration: 2
   bashCooldown: 0.5
+  bashObject: {fileID: 0}
   bashEffect: {fileID: 7287376828013345842}
   affectedLayers:
     serializedVersion: 2

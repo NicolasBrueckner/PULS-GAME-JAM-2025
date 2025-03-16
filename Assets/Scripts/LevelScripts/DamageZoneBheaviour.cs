@@ -15,14 +15,26 @@ public class DamageZoneBheaviour : MonoBehaviour
         _playerLayer = 1 << LayerMask.NameToLayer("Player");
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (!IsInLayerMask(other.gameObject, _playerLayer))
             return;
 
-        audioSourceDamage.clip = damageSound;
-        audioSourceDamage.Play();
+        if (!audioSourceDamage.isPlaying)
+        {
+            audioSourceDamage.clip = damageSound;
+            audioSourceDamage.Play();
+        }
 
+        // should give continous dmg but wait for invincible
         _gem.OnPlayerHit();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (IsInLayerMask(other.gameObject, _playerLayer))
+        {
+            audioSourceDamage.Stop();
+        }
     }
 }
