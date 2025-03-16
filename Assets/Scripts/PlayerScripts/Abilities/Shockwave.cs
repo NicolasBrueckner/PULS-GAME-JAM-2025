@@ -12,7 +12,6 @@ public class Shockwave : MonoBehaviour, IAbility
 	public bool IsActive => enabled;
 
 	public float cooldown;
-	public GameObject shockwaveObject;
 	public GameObject shockwaveEffect;
 	public LayerMask affectedLayers;
 
@@ -98,7 +97,6 @@ public class Shockwave : MonoBehaviour, IAbility
 	public void ChangeActivityStatus( bool isActive )
 	{
 		enabled = isActive;
-		shockwaveObject.SetActive( isActive );
 		gameObject.SetActive( isActive );
 	}
 }

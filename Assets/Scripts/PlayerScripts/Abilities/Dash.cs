@@ -12,7 +12,6 @@ public class Dash : MonoBehaviour, IAbility
 	public float dashFactor;
 	public float dashDuration;
 	public float dashCooldown;
-	public GameObject dashObject;
 	public GameObject dashEffect;
 
     public AudioClip dashSound;
@@ -68,7 +67,6 @@ public class Dash : MonoBehaviour, IAbility
 	public void ChangeActivityStatus( bool isActive )
 	{
 		enabled = isActive;
-		dashObject.SetActive( isActive );
 		gameObject.SetActive( isActive );
 	}
 }
