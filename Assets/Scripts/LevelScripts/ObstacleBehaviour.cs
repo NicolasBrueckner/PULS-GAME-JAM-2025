@@ -16,6 +16,7 @@ public class ObstacleBehaviour : MonoBehaviour, IDestroyable
 
 	private void Start()
 	{
+		if (healEffect == null) return;
 		healEffect?.SetActive( hasHealthUp );
 	}
 
