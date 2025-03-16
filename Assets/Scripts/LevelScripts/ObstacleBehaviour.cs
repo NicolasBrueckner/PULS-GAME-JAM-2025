@@ -15,13 +15,10 @@ public class ObstacleBehaviour : MonoBehaviour, IDestroyable
 
 	private void Start()
 	{
-		if (hasHealthUp)
-			SetActiveByName("HealParticle" , true);
-		else
-            SetActiveByName("HealParticle", false);
-    }
+		SetActiveByName( "HealParticle", hasHealthUp );
+	}
 
-    private void Awake()
+	private void Awake()
 	{
 		_playerLayer = 1 << LayerMask.NameToLayer( "Player" );
 	}
@@ -30,15 +27,16 @@ public class ObstacleBehaviour : MonoBehaviour, IDestroyable
 	{
 		if( !IsInLayerMask( other.gameObject, _playerLayer ) )
 			return;
+		Debug.Log( "player should take damage" );
 
 		_gem.OnPlayerHit();
-
-		if( hasHealthUp )
-			_gem.OnPlayerHeal();
 	}
 
 	public void DestroyInterfaceMember()
 	{
+		if( hasHealthUp )
+			_gem.OnPlayerHeal();
+
 		gameObject.SetActive( false );
 	}
 }

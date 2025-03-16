@@ -12,6 +12,7 @@ public class Shockwave : MonoBehaviour, IAbility
 	public bool IsActive => enabled;
 
 	public float cooldown;
+	public GameObject shockwaveEffect;
 	public LayerMask affectedLayers;
 
 	private bool _isDestroying;
@@ -24,6 +25,13 @@ public class Shockwave : MonoBehaviour, IAbility
 	private void Start()
 	{
 		_piem.ShockwavePerformed += OnShockwavePerformedReceived;
+	}
+
+	private void OnDisable()
+	{
+		_isDestroying = false;
+		shockwaveEffect.SetActive( false );
+		_shockwaveCooldownCoroutine = null;
 	}
 
 	private void OnDestroy()
@@ -45,21 +53,31 @@ public class Shockwave : MonoBehaviour, IAbility
 
 	private void OnShockwavePerformedReceived()
 	{
-		_gem.OnPlayerHeal();
+		if( !IsActive )
+			return;
+
 		_isDestroying = true;
 		_shockwaveCooldownCoroutine ??= StartCoroutine( ShockwaveCooldown() );
 	}
 
 	private IEnumerator ShockwaveCooldown()
 	{
-		yield return new WaitForFixedUpdate();
+		shockwaveEffect.SetActive( true );
 
-		_isDestroying = false;
+		yield return new WaitForFixedUpdate();
 
 		float timer = cooldown;
 
 		while( ( timer -= Time.fixedDeltaTime ) > 0 )
+		{
+			if( timer <= cooldown / 2 )
+			{
+				_isDestroying = false;
+				shockwaveEffect.SetActive( false );
+			}
+
 			yield return new WaitForFixedUpdate();
+		}
 
 		_shockwaveCooldownCoroutine = null;
 	}

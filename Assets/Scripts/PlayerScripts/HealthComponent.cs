@@ -50,6 +50,7 @@ public class HealthComponent : MonoBehaviour
 
 	private void TakeDamage( int damage )
 	{
+		Debug.Log( "taking dmg rn" );
 		Health -= damage;
 
 		if( Health > 0 )
