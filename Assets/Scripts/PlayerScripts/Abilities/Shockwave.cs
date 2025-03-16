@@ -16,7 +16,12 @@ public class Shockwave : MonoBehaviour, IAbility
 	public GameObject shockwaveEffect;
 	public LayerMask affectedLayers;
 
-	private bool _isDestroying;
+    public AudioClip shockwaveSound;
+    public AudioClip destroySound;
+    public AudioSource audioSourceAbility;
+    public AudioSource audioSourceDestroy;
+
+    private bool _isDestroying;
 
 	private Coroutine _shockwaveCooldownCoroutine;
 
@@ -50,14 +55,20 @@ public class Shockwave : MonoBehaviour, IAbility
 
 		IDestroyable d = other.GetComponent<IDestroyable>();
 		d?.DestroyInterfaceMember();
-	}
+
+        audioSourceDestroy.clip = destroySound;
+        audioSourceDestroy.Play();
+    }
 
 	private void OnShockwavePerformedReceived()
 	{
 		if( !IsActive )
 			return;
 
-		_isDestroying = true;
+        audioSourceAbility.clip = shockwaveSound;
+        audioSourceAbility.Play();
+
+        _isDestroying = true;
 		_shockwaveCooldownCoroutine ??= StartCoroutine( ShockwaveCooldown() );
 	}
 

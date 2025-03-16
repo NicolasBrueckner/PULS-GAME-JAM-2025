@@ -15,7 +15,12 @@ public class Dash : MonoBehaviour, IAbility
 	public GameObject dashObject;
 	public GameObject dashEffect;
 
-	private Coroutine _timedDashCoroutine;
+    public AudioClip dashSound;
+    //public AudioClip destroySound;
+    public AudioSource audioSourceAbility;
+    //public AudioSource audioSourceDestroy;
+
+    private Coroutine _timedDashCoroutine;
 
 	private PlayerInputEventManager _piem => PlayerInputEventManager.Instance;
 	private GameplayEventManager _gem => GameplayEventManager.Instance;
@@ -35,7 +40,10 @@ public class Dash : MonoBehaviour, IAbility
 		if( !IsActive )
 			return;
 
-		_timedDashCoroutine ??= StartCoroutine( TimedDash() );
+        audioSourceAbility.clip = dashSound;
+        audioSourceAbility.Play();
+
+        _timedDashCoroutine ??= StartCoroutine( TimedDash() );
 	}
 
 	private IEnumerator TimedDash()

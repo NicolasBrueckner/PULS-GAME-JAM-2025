@@ -12,7 +12,10 @@ public class AbilityBehavior : MonoBehaviour
 	public GameObject bashObject;
 	public GameObject dashObject;
 
-	private List<IAbility> _abilities;
+    public AudioClip abilityLostSound;
+    public AudioSource audioSource;
+
+    private List<IAbility> _abilities;
 
 	private GameplayEventManager _gem => GameplayEventManager.Instance;
 
@@ -31,7 +34,10 @@ public class AbilityBehavior : MonoBehaviour
 
 	private void OnPlayerHealthThresholdReached()
 	{
-		IAbility next = _abilities.FirstOrDefault( a => a.IsActive );
+        audioSource.clip = abilityLostSound;
+        audioSource.Play();
+
+        IAbility next = _abilities.FirstOrDefault( a => a.IsActive );
 
 		next?.ChangeActivityStatus( false );
 	}

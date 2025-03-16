@@ -17,7 +17,12 @@ public class Bash : MonoBehaviour, IAbility
 	public GameObject bashEffect;
 	public LayerMask affectedLayers;
 
-	private bool _isBashing;
+    public AudioClip bashSound;
+    public AudioClip destroySound;
+    public AudioSource audioSourceAbility;
+    public AudioSource audioSourceDestroy;
+
+    private bool _isBashing;
 	private Coroutine _timedBashCoroutine;
 
 	private PlayerInputEventManager _piem => PlayerInputEventManager.Instance;
@@ -49,14 +54,20 @@ public class Bash : MonoBehaviour, IAbility
 
 		IDestroyable d = other.GetComponent<IDestroyable>();
 		d?.DestroyInterfaceMember();
-	}
+
+        audioSourceDestroy.clip = destroySound;
+        audioSourceDestroy.Play();
+    }
 
 	private void OnBashDashPerformedReceived()
 	{
 		if( !IsActive )
 			return;
 
-		_timedBashCoroutine ??= StartCoroutine( TimedBash() );
+        audioSourceAbility.clip = bashSound;
+        audioSourceAbility.Play();
+
+        _timedBashCoroutine ??= StartCoroutine( TimedBash() );
 	}
 
 	private IEnumerator TimedBash()

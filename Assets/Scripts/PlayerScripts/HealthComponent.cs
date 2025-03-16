@@ -17,7 +17,12 @@ public class HealthComponent : MonoBehaviour
 	public int Health{ get; private set; }
 	public bool IsInvincible{ get; private set; }
 
-	private Coroutine _afterDamageCoroutine;
+    public AudioClip hitProjectileSound;
+    public AudioClip hitObstacleSound;
+    public AudioClip healSound;
+    public AudioSource audioSource;
+
+    private Coroutine _afterDamageCoroutine;
 	private Coroutine _afterHealCoroutine;
 	private const int AbilityHealthThreshold = 5;
 
@@ -34,10 +39,13 @@ public class HealthComponent : MonoBehaviour
         _gem.PlayerCriticalHit += OnPlayerCriticalHitReceived;
         _gem.PlayerHeal += OnPlayerHealReceived;
 		_gem.PlayerInvincible += OnPlayerInvincibleReceived;
-	}
+    }
 
 	private void OnPlayerHealReceived()
 	{
+		audioSource.clip = healSound;
+		audioSource.Play();
+
 		TakeHeal( 2 );
 		_afterHealCoroutine ??= StartCoroutine( AfterHeal() );
 	}
@@ -47,7 +55,10 @@ public class HealthComponent : MonoBehaviour
 		if( IsInvincible )
 			return;
 
-		TakeDamage( 1 );
+        audioSource.clip = hitObstacleSound;
+        audioSource.Play();
+
+        TakeDamage( 1 );
         _afterDamageCoroutine ??= StartCoroutine( AfterDamage() );
 	}
 
@@ -55,6 +66,9 @@ public class HealthComponent : MonoBehaviour
     {
         if (IsInvincible)
             return;
+
+        audioSource.clip = hitProjectileSound;
+        audioSource.Play();
 
         TakeDamage(2);
 		_afterDamageCoroutine ??= StartCoroutine(AfterDamage());
