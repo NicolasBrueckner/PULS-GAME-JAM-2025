@@ -26,9 +26,6 @@ public class ProjectileBehaviour : MonoBehaviour
 		_rb = GetComponent<Rigidbody>();
 	}
 
-	//private void OnEnable()  => FixedUpdateEventManager.RegisterObserver( this );
-	//private void OnDisable() => FixedUpdateEventManager.UnregisterObserver( this );
-
 	public void FixedUpdate()
 	{
 		if( IsOutOfRange() )
