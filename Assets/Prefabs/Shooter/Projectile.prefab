@@ -186,8 +186,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1536
-  minSpeed: 4
-  maxSpeed: 9
+  minSpeed: 1
+  maxSpeed: 4
   minAngle: 30
   maxAngle: 150
   outOfRangeSqrDistance: 2500

@@ -12,6 +12,7 @@ public class Dash : MonoBehaviour, IAbility
 	public float dashFactor;
 	public float dashDuration;
 	public float dashCooldown;
+	public GameObject dashObject;
 	public GameObject dashEffect;
 
 	private Coroutine _timedDashCoroutine;
@@ -59,6 +60,7 @@ public class Dash : MonoBehaviour, IAbility
 	public void ChangeActivityStatus( bool isActive )
 	{
 		enabled = isActive;
+		dashObject.SetActive( isActive );
 		gameObject.SetActive( isActive );
 	}
 }

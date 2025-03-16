@@ -13,6 +13,7 @@ public class Bash : MonoBehaviour, IAbility
 
 	public float bashDuration;
 	public float bashCooldown;
+	public GameObject bashObject;
 	public GameObject bashEffect;
 	public LayerMask affectedLayers;
 
@@ -82,6 +83,7 @@ public class Bash : MonoBehaviour, IAbility
 	public void ChangeActivityStatus( bool isActive )
 	{
 		enabled = isActive;
+		bashObject.SetActive( isActive );
 		gameObject.SetActive( isActive );
 	}
 }
