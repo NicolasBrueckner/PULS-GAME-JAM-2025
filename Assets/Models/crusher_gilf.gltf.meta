@@ -23,7 +23,7 @@ ScriptedImporter:
   _importNormals: 0
   _importTangents: 0
   _importCamera: 2
-  _importAnimations: 2
+  _importAnimations: 1
   _mecanimHumanoidFlip: 0
   _addAnimatorComponent: 0
   _animationLoopTime: 1
@@ -42,19 +42,19 @@ ScriptedImporter:
 '
   optimizeGameObjects: 0
   materials:
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
+  - {fileID: 4758309174586462558, guid: d937e3c52c76f2942851374828c6874b, type: 3}
+  - {fileID: -5646530764462240107, guid: d937e3c52c76f2942851374828c6874b, type: 3}
+  - {fileID: -7844039657895055965, guid: d937e3c52c76f2942851374828c6874b, type: 3}
+  - {fileID: 5407048100447482462, guid: d937e3c52c76f2942851374828c6874b, type: 3}
+  - {fileID: -1136953195951189969, guid: d937e3c52c76f2942851374828c6874b, type: 3}
+  - {fileID: 5185338884453517623, guid: d937e3c52c76f2942851374828c6874b, type: 3}
   textures:
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
+  - {fileID: -7715628349463195359, guid: d937e3c52c76f2942851374828c6874b, type: 3}
+  - {fileID: -2079745548220426413, guid: d937e3c52c76f2942851374828c6874b, type: 3}
+  - {fileID: -6794422212167645685, guid: d937e3c52c76f2942851374828c6874b, type: 3}
+  - {fileID: -8968495883087878189, guid: d937e3c52c76f2942851374828c6874b, type: 3}
+  - {fileID: 7971498981120320955, guid: d937e3c52c76f2942851374828c6874b, type: 3}
+  - {fileID: 399547456705471374, guid: d937e3c52c76f2942851374828c6874b, type: 3}
   hasSceneData: 1
   hasAnimationData: 1
   hasMaterialData: 1
@@ -63,22 +63,22 @@ ScriptedImporter:
   - name: animation
   _extensions: []
   _textures:
-  - texture: {instanceID: 0}
+  - texture: {fileID: -7715628349463195359, guid: d937e3c52c76f2942851374828c6874b, type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -2079745548220426413, guid: d937e3c52c76f2942851374828c6874b, type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -6794422212167645685, guid: d937e3c52c76f2942851374828c6874b, type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -8968495883087878189, guid: d937e3c52c76f2942851374828c6874b, type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: 7971498981120320955, guid: d937e3c52c76f2942851374828c6874b, type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: 399547456705471374, guid: d937e3c52c76f2942851374828c6874b, type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
   _mainAssetIdentifier: scenes/blockbench_export

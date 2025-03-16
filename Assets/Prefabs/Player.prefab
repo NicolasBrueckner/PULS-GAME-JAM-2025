@@ -25,11 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803470228929469766}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7364756815022339581}
   m_Father: {fileID: 2923778115001499605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &811975329334415361
@@ -47,7 +48,7 @@ MonoBehaviour:
   dashFactor: 1.7
   dashDuration: 2
   dashCooldown: 0.5
-  dashObject: {fileID: 1524636977072360982}
+  dashObject: {fileID: 0}
   dashEffect: {fileID: 8503955387965017596}
   dashSound: {fileID: 8300000, guid: 6d3f0eb06cf28f44a8deacc5c3080155, type: 3}
   audioSourceAbility: {fileID: 7047866255127453289}
@@ -101,7 +102,7 @@ MonoBehaviour:
   invincibilityDuration: 2
   hitEffect: {fileID: 4868669656864905801}
   healEffect: {fileID: 6926325474889362745}
-  hitProjectileSound: {fileID: 8300000, guid: c6a4990b43d3ef948bea563e8985cae3, type: 3}
+  hitProjectileSound: {fileID: 8300000, guid: 744691f96414947408636c5971678507, type: 3}
   hitObstacleSound: {fileID: 8300000, guid: c6a4990b43d3ef948bea563e8985cae3, type: 3}
   healSound: {fileID: 8300000, guid: c5effce5e7814f64795f3e3a51bd11e2, type: 3}
   audioSource: {fileID: 2451282316676591482}
@@ -152,11 +153,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529087971890313997}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4018211186679891478}
   m_Father: {fileID: 2923778115001499605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &7001134440426133973
@@ -193,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 8
-  shockwaveObject: {fileID: 4962909364640267773}
+  shockwaveObject: {fileID: 0}
   shockwaveEffect: {fileID: 8674701474501564013}
   affectedLayers:
     serializedVersion: 2
@@ -231,9 +233,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 4018211186679891478}
-  - {fileID: 3802761566012454794}
-  - {fileID: 7364756815022339581}
   - {fileID: 2718927713654868172}
   - {fileID: 1077358899278268730}
   m_Father: {fileID: 9030132985499031707}
@@ -400,10 +399,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2923778115001499605}
-  - {fileID: 5893567915617236486}
-  - {fileID: 7972268405934634944}
   - {fileID: 9219941066609655315}
   - {fileID: 4154882700581953282}
+  - {fileID: 5893567915617236486}
+  - {fileID: 7972268405934634944}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8525276410927772200
@@ -752,11 +751,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7318149339830498200}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3802761566012454794}
   m_Father: {fileID: 2923778115001499605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &2603108926448445737
@@ -794,7 +794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bashDuration: 2
   bashCooldown: 0.5
-  bashObject: {fileID: 5177549068833377377}
+  bashObject: {fileID: 0}
   bashEffect: {fileID: 7287376828013345842}
   affectedLayers:
     serializedVersion: 2
@@ -1071,7 +1071,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5893567915617236486}
+    m_TransformParent: {fileID: 8749568678890391523}
     m_Modifications:
     - target: {fileID: -3500460014136483016, guid: 57352c0d8b2243249b0e0f898e8d09d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1128,11 +1128,6 @@ PrefabInstance:
       addedObject: {fileID: 7401924012946059825}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 8686905464242370237, guid: 57352c0d8b2243249b0e0f898e8d09d0, type: 3}
---- !u!1 &1524636977072360982 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4357118449180629203, guid: 57352c0d8b2243249b0e0f898e8d09d0, type: 3}
-  m_PrefabInstance: {fileID: 2981103008599021253}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7364756815022339581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3500460014136483016, guid: 57352c0d8b2243249b0e0f898e8d09d0, type: 3}
@@ -1321,7 +1316,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 339158821923109191, guid: 108ca465382c11742bd2c91fe4fdb13f, type: 3}
       propertyPath: m_Name
-      value: HealEffect
+      value: vfx_Heal_01
       objectReference: {fileID: 0}
     - target: {fileID: 339158821923109191, guid: 108ca465382c11742bd2c91fe4fdb13f, type: 3}
       propertyPath: m_IsActive
@@ -1400,7 +1395,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3077343761403282166, guid: f78aaaec3b393e24ca74cd6de8194347, type: 3}
       propertyPath: m_Name
-      value: HitEffect
+      value: TakingHitEffect
       objectReference: {fileID: 0}
     - target: {fileID: 3077343761403282166, guid: f78aaaec3b393e24ca74cd6de8194347, type: 3}
       propertyPath: m_IsActive
@@ -1491,7 +1486,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5893567915617236486}
+    m_TransformParent: {fileID: 8507226766342638110}
     m_Modifications:
     - target: {fileID: -3500460014136483016, guid: 7ad6fb13bb8cd6b48b2ec98064e53ccd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1550,18 +1545,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -3500460014136483016, guid: 7ad6fb13bb8cd6b48b2ec98064e53ccd, type: 3}
   m_PrefabInstance: {fileID: 8694291307484538158}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4962909364640267773 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4357118449180629203, guid: 7ad6fb13bb8cd6b48b2ec98064e53ccd, type: 3}
-  m_PrefabInstance: {fileID: 8694291307484538158}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8911991815989728434
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5893567915617236486}
+    m_TransformParent: {fileID: 2742056860354933637}
     m_Modifications:
     - target: {fileID: -3500460014136483016, guid: 6e50e2f687185b942a2c27ca019ccf67, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1622,10 +1612,5 @@ PrefabInstance:
 --- !u!4 &3802761566012454794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3500460014136483016, guid: 6e50e2f687185b942a2c27ca019ccf67, type: 3}
-  m_PrefabInstance: {fileID: 8911991815989728434}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5177549068833377377 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4357118449180629203, guid: 6e50e2f687185b942a2c27ca019ccf67, type: 3}
   m_PrefabInstance: {fileID: 8911991815989728434}
   m_PrefabAsset: {fileID: 0}
