@@ -1,40 +1,42 @@
+#region
+
 using UnityEngine;
 using static Kaputt;
 
+#endregion
+
 public class DamageZoneBheaviour : MonoBehaviour
 {
-    public AudioClip damageSound;
-    public AudioSource audioSourceDamage;
+	public AudioClip damageSound;
+	public AudioSource audioSourceDamage;
 
-    private LayerMask _playerLayer;
+	private LayerMask _playerLayer;
 
-    private GameplayEventManager _gem => GameplayEventManager.Instance;
+	private GameplayEventManager _gem => GameplayEventManager.Instance;
 
-    private void Awake()
-    {
-        _playerLayer = 1 << LayerMask.NameToLayer("Player");
-    }
+	private void Awake()
+	{
+		_playerLayer = 1 << LayerMask.NameToLayer( "Player" );
+	}
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (!IsInLayerMask(other.gameObject, _playerLayer))
-            return;
+	private void OnTriggerStay( Collider other )
+	{
+		if( !IsInLayerMask( other.gameObject, _playerLayer ) )
+			return;
 
-        if (!audioSourceDamage.isPlaying)
-        {
-            audioSourceDamage.clip = damageSound;
-            audioSourceDamage.Play();
-        }
+		if( !audioSourceDamage.isPlaying )
+		{
+			audioSourceDamage.clip = damageSound;
+			audioSourceDamage.Play();
+		}
 
-        // should give continous dmg but wait for invincible
-        _gem.OnPlayerHit();
-    }
+		// should give continous dmg but wait for invincible
+		_gem.OnPlayerCriticalHit();
+	}
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (IsInLayerMask(other.gameObject, _playerLayer))
-        {
-            audioSourceDamage.Stop();
-        }
-    }
+	private void OnTriggerExit( Collider other )
+	{
+		if( IsInLayerMask( other.gameObject, _playerLayer ) )
+			audioSourceDamage.Stop();
+	}
 }
