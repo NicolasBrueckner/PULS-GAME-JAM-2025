@@ -34,12 +34,21 @@ ScriptedImporter:
   _generateMipMaps: 1
   _useSceneNameIdentifier: 1
   _textureCompression: -50
-  _gltfAsset: 
+  _gltfAsset: '<b>Generator: </b>Khronos glTF Blender I/O v4.2.83
+
+    <b>Version:
+    </b>2.0
+
+'
   optimizeGameObjects: 0
-  materials: []
-  textures: []
+  materials:
+  - {fileID: 2431268335427001128, guid: 798878b910aa38446997c9778da4d615, type: 3}
+  - {fileID: -7167819254903753031, guid: 798878b910aa38446997c9778da4d615, type: 3}
+  textures:
+  - {fileID: -3926687174140238800, guid: 798878b910aa38446997c9778da4d615, type: 3}
+  - {fileID: 7876530471615878255, guid: 798878b910aa38446997c9778da4d615, type: 3}
   hasSceneData: 1
-  hasAnimationData: 1
+  hasAnimationData: 0
   hasMaterialData: 1
   hasTextureData: 1
   animations: []
@@ -52,6 +61,12 @@ ScriptedImporter:
     supported: 1
     used: 1
     required: 0
-  _textures: []
-  _mainAssetIdentifier: 
+  _textures:
+  - texture: {fileID: -3926687174140238800, guid: 798878b910aa38446997c9778da4d615, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 7876530471615878255, guid: 798878b910aa38446997c9778da4d615, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  _mainAssetIdentifier: scenes/Scene
   _importPlugins: []
