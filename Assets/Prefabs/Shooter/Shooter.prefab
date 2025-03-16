@@ -45,4 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 5312291899415094844, guid: 27ea521cead987d47bd4614483678751, type: 3}
-  frequency: 1.7
+  poolSize: 10
+  projectileSpeed: 10
+  fireRate: 1
+  angleVariance: 20

@@ -12,15 +12,15 @@ public class Dash : MonoBehaviour, IAbility
 	public float dashFactor;
 	public float dashDuration;
 	public float dashCooldown;
+	public GameObject dashObject;
 	public GameObject dashEffect;
 
-	public AudioClip dashSound;
+    public AudioClip dashSound;
+    //public AudioClip destroySound;
+    public AudioSource audioSourceAbility;
+    //public AudioSource audioSourceDestroy;
 
-	//public AudioClip destroySound;
-	public AudioSource audioSourceAbility;
-	//public AudioSource audioSourceDestroy;
-
-	private Coroutine _timedDashCoroutine;
+    private Coroutine _timedDashCoroutine;
 
 	private PlayerInputEventManager _piem => PlayerInputEventManager.Instance;
 	private GameplayEventManager _gem => GameplayEventManager.Instance;
@@ -40,10 +40,10 @@ public class Dash : MonoBehaviour, IAbility
 		if( !IsActive )
 			return;
 
-		audioSourceAbility.clip = dashSound;
-		audioSourceAbility.Play();
+        audioSourceAbility.clip = dashSound;
+        audioSourceAbility.Play();
 
-		_timedDashCoroutine ??= StartCoroutine( TimedDash() );
+        _timedDashCoroutine ??= StartCoroutine( TimedDash() );
 	}
 
 	private IEnumerator TimedDash()
@@ -68,6 +68,7 @@ public class Dash : MonoBehaviour, IAbility
 	public void ChangeActivityStatus( bool isActive )
 	{
 		enabled = isActive;
+		dashObject.SetActive( isActive );
 		gameObject.SetActive( isActive );
 	}
 }

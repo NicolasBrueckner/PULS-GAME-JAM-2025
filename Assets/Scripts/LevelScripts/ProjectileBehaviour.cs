@@ -7,7 +7,7 @@ using static Kaputt;
 #endregion
 
 [ RequireComponent( typeof( Rigidbody ) ) ]
-public class ProjectileBehaviour : MonoBehaviour
+public class ProjectileBehaviour : MonoBehaviour, IFixedUpdateObserver
 {
 	public LayerMask playerLayer;
 	public float minSpeed;
@@ -26,7 +26,10 @@ public class ProjectileBehaviour : MonoBehaviour
 		_rb = GetComponent<Rigidbody>();
 	}
 
-	public void FixedUpdate()
+	private void OnEnable()  => FixedUpdateEventManager.RegisterObserver( this );
+	private void OnDisable() => FixedUpdateEventManager.UnregisterObserver( this );
+
+	public void ObservedFixedUpdate()
 	{
 		if( IsOutOfRange() )
 			DeactivateProjectile();
