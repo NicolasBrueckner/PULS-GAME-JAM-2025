@@ -342,11 +342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7513268305671955360, guid: c78ba0be18378be4b8fa85362eb0446f, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.9993547
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7513268305671955360, guid: c78ba0be18378be4b8fa85362eb0446f, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.99999994
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
