@@ -14,7 +14,6 @@ public static class Kaputt
 			instance = gameObject.GetComponent<T>();
 			if( !instance )
 				instance = gameObject.AddComponent<T>();
-			Object.DontDestroyOnLoad( gameObject );
 			return instance;
 		}
 

@@ -52,6 +52,9 @@ MonoBehaviour:
     - Key: 0
       Value:
         screenAsset: {fileID: 9197481963319205126, guid: 6f0f9ab965de9854188ce7f841ec680f, type: 3}
+    - Key: 5
+      Value:
+        screenAsset: {fileID: 9197481963319205126, guid: c833fff9a9512174c97782e3f0f4042f, type: 3}
     - Key: 1
       Value:
         screenAsset: {fileID: 9197481963319205126, guid: 8bfd8fd9e9143dc46a91c00bd78939c9, type: 3}

@@ -17,8 +17,9 @@ public class MenuScreenFactory : MonoBehaviour
 			MenuScreenType.HUD      => new HUDMenuScreen( asset, type, controller ),
 			MenuScreenType.Credits  => new CreditsMenuScreen( asset, type, controller ),
 			MenuScreenType.Win      => new WinMenuScreen( asset, type, controller ),
-            MenuScreenType.Pause => new PauseMenuScreen(asset, type, controller),
-            _                       => throw new ArgumentException( "not a screen type" ),
+			MenuScreenType.Pause    => new PauseMenuScreen( asset, type, controller ),
+			MenuScreenType.GameOver => new GameOverMenuScreen( asset, type, controller ),
+			_                       => throw new ArgumentException( "not a screen type" ),
 		};
 	}
 }

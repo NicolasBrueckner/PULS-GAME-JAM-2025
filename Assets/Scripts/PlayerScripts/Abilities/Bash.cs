@@ -9,6 +9,8 @@ using static Kaputt;
 [ RequireComponent( typeof( Collider ) ) ]
 public class Bash : MonoBehaviour, IAbility
 {
+	public bool IsActive => enabled;
+
 	public float bashDuration;
 	public float bashCooldown;
 	public LayerMask affectedLayers;
@@ -22,6 +24,11 @@ public class Bash : MonoBehaviour, IAbility
 	private void Start()
 	{
 		_piem.BashDashPerformed += OnBashDashPerformedReceived;
+	}
+
+	private void OnDestroy()
+	{
+		_piem.BashDashPerformed -= OnBashDashPerformedReceived;
 	}
 
 	private void OnTriggerStay( Collider other )
@@ -63,6 +70,7 @@ public class Bash : MonoBehaviour, IAbility
 
 	public void ChangeActivityStatus( bool isActive )
 	{
+		Debug.Log( $"ability {this} set to {isActive}" );
 		enabled = isActive;
 	}
 }

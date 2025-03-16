@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class Dash : MonoBehaviour, IAbility
 {
+	public bool IsActive => enabled;
+
 	public float dashFactor;
 	public float dashDuration;
 	public float dashCooldown;
@@ -21,8 +23,15 @@ public class Dash : MonoBehaviour, IAbility
 		_piem.BashDashPerformed += OnBashDashPerformedReceived;
 	}
 
+	private void OnDestroy()
+	{
+		_piem.BashDashPerformed -= OnBashDashPerformedReceived;
+	}
+
 	private void OnBashDashPerformedReceived()
 	{
+		_gem.OnPlayerHit();
+
 		if( enabled )
 			_timedDashCoroutine ??= StartCoroutine( TimedDash() );
 	}
@@ -44,6 +53,7 @@ public class Dash : MonoBehaviour, IAbility
 
 	public void ChangeActivityStatus( bool isActive )
 	{
+		Debug.Log( $"ability {this} set to {isActive}" );
 		enabled = isActive;
 	}
 }

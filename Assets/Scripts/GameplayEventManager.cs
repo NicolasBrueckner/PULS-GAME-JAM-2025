@@ -14,6 +14,7 @@ public class GameplayEventManager : MonoBehaviour
 	public event Action GameEnded;
 	public event Action PlayerHit;
 	public event Action PlayerHeal;
+	public event Action PlayerDead;
 	public event Action<bool> PlayerInvincible;
 	public event Action<float> MoveSpeedChange;
 	public event Action<GameObject> ProjectileDeactivate;
@@ -23,11 +24,11 @@ public class GameplayEventManager : MonoBehaviour
 		Instance = CreateSingleton( Instance, gameObject );
 	}
 
-
 	public void OnGameStarted()                                 => GameStarted?.Invoke();
-    public void OnGameEnded()                                   => GameEnded?.Invoke();
+	public void OnGameEnded()                                   => GameEnded?.Invoke();
 	public void OnPlayerHit()                                   => PlayerHit?.Invoke();
 	public void OnPlayerHeal()                                  => PlayerHeal?.Invoke();
+	public void OnPlayerDead()                                  => PlayerDead?.Invoke();
 	public void OnPlayerInvincible( bool isInvincible )         => PlayerInvincible?.Invoke( isInvincible );
 	public void OnMoveSpeedChange( float factor )               => MoveSpeedChange?.Invoke( factor );
 	public void OnProjectileDeactivate( GameObject projectile ) => ProjectileDeactivate?.Invoke( projectile );

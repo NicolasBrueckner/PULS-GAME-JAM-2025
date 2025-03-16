@@ -12,7 +12,7 @@ public class AbilityBehavior : MonoBehaviour
 	public GameObject bashObject;
 	public GameObject dashObject;
 
-	private Dictionary<IAbility, bool> _abilities;
+	private List<IAbility> _abilities;
 
 	private GameplayEventManager _gem => GameplayEventManager.Instance;
 
@@ -20,26 +20,26 @@ public class AbilityBehavior : MonoBehaviour
 	{
 		_abilities = new()
 		{
-			{ shockWaveGameObject.GetComponent<IAbility>(), false },
-			{ bashObject.GetComponent<IAbility>(), false },
-			{ dashObject.GetComponent<IAbility>(), false },
+			shockWaveGameObject.GetComponent<IAbility>(),
+			bashObject.GetComponent<IAbility>(),
+			dashObject.GetComponent<IAbility>(),
 		};
 
 		_gem.PlayerHit += OnPlayerHitReceived;
 		_gem.PlayerHeal += OnPlayerHealReceived;
 	}
 
-	private void OnPlayerHitReceived()  => ChangeNextAbilityStatus( false );
-	private void OnPlayerHealReceived() => ChangeNextAbilityStatus( true );
-
-	private void ChangeNextAbilityStatus( bool isActive )
+	private void OnPlayerHitReceived()
 	{
-		IAbility next = _abilities.FirstOrDefault( pair => pair.Value != isActive ).Key;
+		IAbility next = _abilities.FirstOrDefault( a => a.IsActive );
 
-		if( next == null )
-			return;
+		next?.ChangeActivityStatus( false );
+	}
 
-		next.ChangeActivityStatus( isActive );
-		_abilities[ next ] = isActive;
+	private void OnPlayerHealReceived()
+	{
+		IAbility next = _abilities.LastOrDefault( a => !a.IsActive );
+
+		next?.ChangeActivityStatus( true );
 	}
 }

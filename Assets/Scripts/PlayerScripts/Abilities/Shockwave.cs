@@ -9,11 +9,12 @@ using static Kaputt;
 [ RequireComponent( typeof( Collider ) ) ]
 public class Shockwave : MonoBehaviour, IAbility
 {
+	public bool IsActive => enabled;
+
 	public float cooldown;
 	public LayerMask affectedLayers;
 
 	private bool _isDestroying;
-	private bool _isDrawing;
 
 	private Coroutine _shockwaveCooldownCoroutine;
 
@@ -23,6 +24,11 @@ public class Shockwave : MonoBehaviour, IAbility
 	private void Start()
 	{
 		_piem.ShockwavePerformed += OnShockwavePerformedReceived;
+	}
+
+	private void OnDestroy()
+	{
+		_piem.ShockwavePerformed -= OnShockwavePerformedReceived;
 	}
 
 	private void OnTriggerStay( Collider other )
@@ -39,8 +45,8 @@ public class Shockwave : MonoBehaviour, IAbility
 
 	private void OnShockwavePerformedReceived()
 	{
+		_gem.OnPlayerHeal();
 		_isDestroying = true;
-		_isDrawing = true;
 		_shockwaveCooldownCoroutine ??= StartCoroutine( ShockwaveCooldown() );
 	}
 
@@ -55,12 +61,13 @@ public class Shockwave : MonoBehaviour, IAbility
 		while( ( timer -= Time.fixedDeltaTime ) > 0 )
 			yield return new WaitForFixedUpdate();
 
-		_isDrawing = false;
 		_shockwaveCooldownCoroutine = null;
 	}
 
+
 	public void ChangeActivityStatus( bool isActive )
 	{
+		Debug.Log( $"ability {this} set to {isActive}" );
 		enabled = isActive;
 	}
 }

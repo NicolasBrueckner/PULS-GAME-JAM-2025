@@ -1,15 +1,28 @@
+#region
+
 using System.Linq;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static Kaputt;
+
+#endregion
 
 public class MenuScreenController : MonoBehaviour
 {
+	private static MenuScreenController Instance;
+
+	public MenuScreenType startingScreen;
 	public UIDocument rootDocument;
 	public SerializedDictionary<MenuScreenType, MenuScreen> screensByType = new();
 
 	private MenuScreen _currentScreen;
 	private VisualElement _root;
+
+	private void Awake()
+	{
+		Instance = CreateSingleton( Instance, gameObject );
+	}
 
 	private void Start()
 	{
@@ -17,7 +30,7 @@ public class MenuScreenController : MonoBehaviour
 
 		InitializeScreens();
 		AddScreensToRoot();
-		ToggleScreen( MenuScreenType.Main );
+		ToggleScreen( startingScreen );
 	}
 
 	private void InitializeScreens()
@@ -57,8 +70,5 @@ public class MenuScreenController : MonoBehaviour
 		_currentScreen.Root.style.display = DisplayStyle.Flex;
 	}
 
-	public MenuScreen GetScreenByType( MenuScreenType screenType )
-	{
-		return screensByType[ screenType ];
-	}
+	public MenuScreen GetScreenByType( MenuScreenType screenType ) => screensByType[ screenType ];
 }

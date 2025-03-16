@@ -1,5 +1,9 @@
+#region
+
 using System;
 using UnityEngine.UIElements;
+
+#endregion
 
 public enum MenuScreenType
 {
@@ -8,6 +12,7 @@ public enum MenuScreenType
 	Credits,
 	Win,
 	Pause,
+	GameOver,
 }
 
 [ Serializable ]

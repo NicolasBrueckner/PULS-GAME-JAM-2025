@@ -4,8 +4,9 @@
             <engine:Label text="Game Over" name="GameOverLabel" style="font-size: 30px;" />
         </engine:VisualElement>
         <engine:VisualElement name="ButtonContainer" style="flex-grow: 1; justify-content: center; align-items: stretch; padding-left: 20%; padding-right: 20%;">
-            <engine:Button text="Button" name="RestartButton" />
-            <engine:Button text="Button" name="ExitButton" />
+            <engine:Button text="Restart" name="RestartButton" />
+            <engine:Button text="Main Menu" name="MainMenuButton" />
+            <engine:Button text="Exit" name="ExitButton" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

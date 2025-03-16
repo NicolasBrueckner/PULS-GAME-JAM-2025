@@ -1,5 +1,6 @@
 #region
 
+using Unity.Mathematics;
 using UnityEngine;
 
 #endregion
@@ -22,7 +23,15 @@ public class HealthComponent : MonoBehaviour
 	private void Start()
 	{
 		_gem.PlayerHit += OnPlayerHitReceived;
+		_gem.PlayerHeal += OnPlayerHealReceived;
 		_gem.PlayerInvincible += OnPlayerInvincibleReceived;
+	}
+
+	private void OnPlayerHealReceived()
+	{
+		Health++;
+		Health = math.min( Health, maxHealth );
+		Debug.Log( Health );
 	}
 
 	private void OnPlayerHitReceived()
@@ -31,6 +40,7 @@ public class HealthComponent : MonoBehaviour
 			return;
 
 		TakeDamage( 1 );
+		Debug.Log( Health );
 	}
 
 	private void OnPlayerInvincibleReceived( bool isInvincible )
@@ -41,5 +51,10 @@ public class HealthComponent : MonoBehaviour
 	private void TakeDamage( int damage )
 	{
 		Health -= damage;
+
+		if( Health > 0 )
+			return;
+
+		_gem.OnPlayerDead();
 	}
 }
