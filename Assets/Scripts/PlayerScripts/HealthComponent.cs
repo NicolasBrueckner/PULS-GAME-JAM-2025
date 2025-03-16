@@ -19,6 +19,7 @@ public class HealthComponent : MonoBehaviour
 
 	private Coroutine _afterDamageCoroutine;
 	private Coroutine _afterHealCoroutine;
+	private const int AbilityHealthThreshold = 5;
 
 	private GameplayEventManager _gem => GameplayEventManager.Instance;
 
@@ -30,13 +31,14 @@ public class HealthComponent : MonoBehaviour
 	private void Start()
 	{
 		_gem.PlayerHit += OnPlayerHitReceived;
-		_gem.PlayerHeal += OnPlayerHealReceived;
+        _gem.PlayerCriticalHit += OnPlayerCriticalHitReceived;
+        _gem.PlayerHeal += OnPlayerHealReceived;
 		_gem.PlayerInvincible += OnPlayerInvincibleReceived;
 	}
 
 	private void OnPlayerHealReceived()
 	{
-		TakeHeal( 1 );
+		TakeHeal( 2 );
 		_afterHealCoroutine ??= StartCoroutine( AfterHeal() );
 	}
 
@@ -46,10 +48,19 @@ public class HealthComponent : MonoBehaviour
 			return;
 
 		TakeDamage( 1 );
-		_afterDamageCoroutine ??= StartCoroutine( AfterDamage() );
+        _afterDamageCoroutine ??= StartCoroutine( AfterDamage() );
 	}
 
-	private void OnPlayerInvincibleReceived( bool isInvincible )
+    private void OnPlayerCriticalHitReceived()
+    {
+        if (IsInvincible)
+            return;
+
+        TakeDamage(2);
+		_afterDamageCoroutine ??= StartCoroutine(AfterDamage());
+    }
+
+    private void OnPlayerInvincibleReceived( bool isInvincible )
 	{
 		IsInvincible = isInvincible;
 	}
@@ -68,6 +79,8 @@ public class HealthComponent : MonoBehaviour
 
 			yield return new WaitForFixedUpdate();
 		}
+        if ((maxHealth - Health) % AbilityHealthThreshold == 0)
+            _gem.OnPlayerHealthThresholdReached();
 
 		_gem.OnPlayerInvincible( false );
 		_afterDamageCoroutine = null;
@@ -101,5 +114,5 @@ public class HealthComponent : MonoBehaviour
 	{
 		Health += healAmount;
 		Health = math.min( Health, maxHealth );
-	}
+    }
 }

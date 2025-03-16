@@ -25,11 +25,11 @@ public class AbilityBehavior : MonoBehaviour
 			dashObject.GetComponent<IAbility>(),
 		};
 
-		_gem.PlayerHit += OnPlayerHitReceived;
+		_gem.PlayerHealthThresholdReached += OnPlayerHealthThresholdReached;
 		_gem.PlayerHeal += OnPlayerHealReceived;
 	}
 
-	private void OnPlayerHitReceived()
+	private void OnPlayerHealthThresholdReached()
 	{
 		IAbility next = _abilities.FirstOrDefault( a => a.IsActive );
 

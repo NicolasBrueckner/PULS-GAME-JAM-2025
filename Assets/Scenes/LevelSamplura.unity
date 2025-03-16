@@ -1035,9 +1035,17 @@ PrefabInstance:
       propertyPath: fireRate
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -4496186130582133924, guid: e303a0d6be9bd564589d98bd0c13e9f7, type: 3}
+      propertyPath: frequency
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 378407688293792475, guid: e303a0d6be9bd564589d98bd0c13e9f7, type: 3}
       propertyPath: m_Name
       value: Shooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 378407688293792475, guid: e303a0d6be9bd564589d98bd0c13e9f7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1363041561241207752, guid: e303a0d6be9bd564589d98bd0c13e9f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6452,7 +6460,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1070331411916489667, guid: 16f2ddbbe625888448b8595076a77b4e, type: 3}
       propertyPath: maxHealth
-      value: 1000
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070331411916489667, guid: 16f2ddbbe625888448b8595076a77b4e, type: 3}
+      propertyPath: invincibilityDuration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5474174899959755900, guid: 16f2ddbbe625888448b8595076a77b4e, type: 3}
       propertyPath: m_Name

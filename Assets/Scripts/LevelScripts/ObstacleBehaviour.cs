@@ -29,7 +29,7 @@ public class ObstacleBehaviour : MonoBehaviour, IDestroyable
 	{
 		if( !IsInLayerMask( other.gameObject, _playerLayer ) )
 			return;
-		Debug.Log( "player should take damage" );
+		// Debug.Log( "player should take damage" );
 
 		_gem.OnPlayerHit();
 	}

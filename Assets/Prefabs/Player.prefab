@@ -94,10 +94,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a5a95a85a25ee428d25e6f1398f0cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
-  invincibilityDuration: 0
-  hitEffect: {fileID: 0}
-  healEffect: {fileID: 0}
+  maxHealth: 15
+  invincibilityDuration: 2
+  hitEffect: {fileID: 4868669656864905801}
+  healEffect: {fileID: 6926325474889362745}
 --- !u!135 &3972436107510585945
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -971,6 +971,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7662913529153330500, guid: 108ca465382c11742bd2c91fe4fdb13f, type: 3}
   m_PrefabInstance: {fileID: 7254084540626261118}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6926325474889362745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 339158821923109191, guid: 108ca465382c11742bd2c91fe4fdb13f, type: 3}
+  m_PrefabInstance: {fileID: 7254084540626261118}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7576205320671910079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1059,6 +1064,11 @@ PrefabInstance:
 --- !u!4 &2718927713654868172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5521277632010768499, guid: f78aaaec3b393e24ca74cd6de8194347, type: 3}
+  m_PrefabInstance: {fileID: 7576205320671910079}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4868669656864905801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3077343761403282166, guid: f78aaaec3b393e24ca74cd6de8194347, type: 3}
   m_PrefabInstance: {fileID: 7576205320671910079}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8694291307484538158

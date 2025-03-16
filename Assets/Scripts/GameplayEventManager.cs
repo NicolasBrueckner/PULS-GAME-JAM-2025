@@ -13,8 +13,10 @@ public class GameplayEventManager : MonoBehaviour
 	public event Action GameStarted;
 	public event Action GameWon;
 	public event Action GameEnded;
-	public event Action PlayerHit;
-	public event Action PlayerHeal;
+    public event Action PlayerCriticalHit;
+    public event Action PlayerHit;
+    public event Action PlayerHealthThresholdReached;
+    public event Action PlayerHeal;
 	public event Action PlayerDead;
 	public event Action<bool> PlayerInvincible;
 	public event Action<float> MoveSpeedChange;
@@ -28,8 +30,10 @@ public class GameplayEventManager : MonoBehaviour
 	public void OnGameStarted()                                 => GameStarted?.Invoke();
 	public void OnGameWon()                                     => GameWon?.Invoke();
 	public void OnGameEnded()                                   => GameEnded?.Invoke();
-	public void OnPlayerHit()                                   => PlayerHit?.Invoke();
-	public void OnPlayerHeal()                                  => PlayerHeal?.Invoke();
+    public void OnPlayerCriticalHit()							=> PlayerCriticalHit?.Invoke();
+    public void OnPlayerHit()                                   => PlayerHit?.Invoke();
+    public void OnPlayerHealthThresholdReached()				=> PlayerHealthThresholdReached?.Invoke();
+    public void OnPlayerHeal()                                  => PlayerHeal?.Invoke();
 	public void OnPlayerDead()                                  => PlayerDead?.Invoke();
 	public void OnPlayerInvincible( bool isInvincible )         => PlayerInvincible?.Invoke( isInvincible );
 	public void OnMoveSpeedChange( float factor )               => MoveSpeedChange?.Invoke( factor );

@@ -40,7 +40,7 @@ public class ProjectileBehaviour : MonoBehaviour, IFixedUpdateObserver
 		if( !IsInLayerMask( other.gameObject, playerLayer ) )
 			return;
 
-		GameplayEventManager.Instance?.OnPlayerHit();
+		GameplayEventManager.Instance?.OnPlayerCriticalHit();
 		DeactivateProjectile();
 	}
 
