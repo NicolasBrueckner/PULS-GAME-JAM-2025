@@ -7,8 +7,10 @@ using static Kaputt;
 
 public class WinEndBehaviour : MonoBehaviour
 {
+    public AudioClip winSound;
+    public AudioSource audioSource;
 
-	private LayerMask _playerLayer;
+    private LayerMask _playerLayer;
 
 	private GameplayEventManager _gem => GameplayEventManager.Instance;
 
@@ -25,7 +27,10 @@ public class WinEndBehaviour : MonoBehaviour
 	{
 		if( !IsInLayerMask( other.gameObject, _playerLayer ) )
 			return;
-		Debug.Log( "player should win" );
+
+        audioSource.clip = winSound;
+        audioSource.Play();
+        Debug.Log( "player should win" );
 
 		_gem.OnGameWon();
 	}
