@@ -7,6 +7,7 @@ public enum MenuScreenType
 	HUD,
 	Credits,
 	Win,
+	Pause,
 }
 
 [ Serializable ]

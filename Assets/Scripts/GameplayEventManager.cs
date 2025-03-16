@@ -25,7 +25,7 @@ public class GameplayEventManager : MonoBehaviour
 
 
 	public void OnGameStarted()                                 => GameStarted?.Invoke();
-	public void OnGameEnded()                                   => GameEnded?.Invoke();
+    public void OnGameEnded()                                   => GameEnded?.Invoke();
 	public void OnPlayerHit()                                   => PlayerHit?.Invoke();
 	public void OnPlayerHeal()                                  => PlayerHeal?.Invoke();
 	public void OnPlayerInvincible( bool isInvincible )         => PlayerInvincible?.Invoke( isInvincible );

@@ -117,6 +117,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pause_Game"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7205466-5482-4232-9619-70442a2858ba"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -196,6 +205,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Bash_Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bff3b3c5-c1e4-4d1c-9037-b239e67c202b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause_Game"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -207,6 +227,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Shockwave = m_Gameplay.FindAction("Shockwave", throwIfNotFound: true);
         m_Gameplay_Bash_Dash = m_Gameplay.FindAction("Bash_Dash", throwIfNotFound: true);
+        m_Gameplay_Pause_Game = m_Gameplay.FindAction("Pause_Game", throwIfNotFound: true);
     }
 
     ~@PlayerInputs()
@@ -290,6 +311,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Shockwave;
     private readonly InputAction m_Gameplay_Bash_Dash;
+    private readonly InputAction m_Gameplay_Pause_Game;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -313,6 +335,10 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/Bash_Dash".
         /// </summary>
         public InputAction @Bash_Dash => m_Wrapper.m_Gameplay_Bash_Dash;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Pause_Game".
+        /// </summary>
+        public InputAction @Pause_Game => m_Wrapper.m_Gameplay_Pause_Game;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -348,6 +374,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Bash_Dash.started += instance.OnBash_Dash;
             @Bash_Dash.performed += instance.OnBash_Dash;
             @Bash_Dash.canceled += instance.OnBash_Dash;
+            @Pause_Game.started += instance.OnPause_Game;
+            @Pause_Game.performed += instance.OnPause_Game;
+            @Pause_Game.canceled += instance.OnPause_Game;
         }
 
         /// <summary>
@@ -368,6 +397,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Bash_Dash.started -= instance.OnBash_Dash;
             @Bash_Dash.performed -= instance.OnBash_Dash;
             @Bash_Dash.canceled -= instance.OnBash_Dash;
+            @Pause_Game.started -= instance.OnPause_Game;
+            @Pause_Game.performed -= instance.OnPause_Game;
+            @Pause_Game.canceled -= instance.OnPause_Game;
         }
 
         /// <summary>
@@ -429,5 +461,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnBash_Dash(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause_Game" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause_Game(InputAction.CallbackContext context);
     }
 }
