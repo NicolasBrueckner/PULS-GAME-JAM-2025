@@ -1,6 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/StyleSheets.uss?fileID=7433441132597879392&amp;guid=46c68ae4ecdf07c4bb51768b2303da88&amp;type=3#StyleSheets" />
-    <engine:VisualElement name="Background" style="flex-grow: 1;">
+    <engine:VisualElement name="Background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Materials/Textures/close-up-photography-negative.jpg?fileID=2800000&amp;guid=adb7bfb4518280d46bc4f00e64c29c20&amp;type=3#close-up-photography-negative&quot;);">
         <engine:VisualElement name="MessageContainer" style="flex-grow: 1; align-items: stretch; justify-content: center;">
             <engine:Label text="You Won! :D" name="MessageLabel" class="base-text" style="font-size: 101%;" />
         </engine:VisualElement>
