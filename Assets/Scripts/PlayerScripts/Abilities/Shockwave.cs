@@ -70,7 +70,7 @@ public class Shockwave : MonoBehaviour, IAbility
 
 		while( ( timer -= Time.fixedDeltaTime ) > 0 )
 		{
-			if( timer <= cooldown / 2 )
+			if( timer <= cooldown / 3 )
 			{
 				_isDestroying = false;
 				shockwaveEffect.SetActive( false );
@@ -85,7 +85,7 @@ public class Shockwave : MonoBehaviour, IAbility
 
 	public void ChangeActivityStatus( bool isActive )
 	{
-		Debug.Log( $"ability {this} set to {isActive}" );
 		enabled = isActive;
+		gameObject.SetActive( isActive );
 	}
 }

@@ -16,7 +16,8 @@ public class ObstacleBehaviour : MonoBehaviour, IDestroyable
 
 	private void Start()
 	{
-		healEffect?.SetActive( hasHealthUp );
+		if( healEffect )
+			healEffect.SetActive( hasHealthUp );
 	}
 
 	private void Awake()
@@ -28,7 +29,6 @@ public class ObstacleBehaviour : MonoBehaviour, IDestroyable
 	{
 		if( !IsInLayerMask( other.gameObject, _playerLayer ) )
 			return;
-		Debug.Log( "player should take damage" );
 
 		_gem.OnPlayerHit();
 	}

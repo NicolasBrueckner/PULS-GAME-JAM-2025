@@ -58,7 +58,7 @@ public class Dash : MonoBehaviour, IAbility
 
 	public void ChangeActivityStatus( bool isActive )
 	{
-		Debug.Log( $"ability {this} set to {isActive}" );
 		enabled = isActive;
+		gameObject.SetActive( isActive );
 	}
 }
