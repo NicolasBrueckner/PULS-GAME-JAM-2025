@@ -26,7 +26,7 @@ public class ProjectileBehaviour : MonoBehaviour
 		_rb = GetComponent<Rigidbody>();
 	}
 
-	public void FixedUpdate()
+	private void FixedUpdate()
 	{
 		if( IsOutOfRange() )
 			DeactivateProjectile();
