@@ -1,25 +1,22 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement name="Background" style="flex-grow: 1; flex-direction: row;">
-        <engine:VisualElement name="BackButtonContainer" style="flex-grow: 1; align-self: flex-end;">
-            <engine:Button text="Back" name="BackButton" />
+    <Style src="project://database/Assets/UI/StyleSheets.uss?fileID=7433441132597879392&amp;guid=46c68ae4ecdf07c4bb51768b2303da88&amp;type=3#StyleSheets" />
+    <engine:VisualElement name="Background" style="flex-grow: 1; flex-direction: column; background-image: url(&quot;project://database/Assets/Prefabs/res/TrashPile01.glb?fileID=2690372031572394977&amp;guid=f850fc6711a8417468e11a6906b7b79e&amp;type=3#assortment-dirty-dumped-objects&quot;); -unity-background-image-tint-color: rgb(65, 65, 65);">
+        <engine:VisualElement name="CreditsContainer" style="flex-grow: 1; justify-content: flex-start; align-items: center; align-self: stretch; align-content: stretch; height: 90%; flex-direction: row;">
+            <engine:VisualElement name="RolesContainer" style="flex-grow: 1; align-items: flex-end; justify-content: space-evenly; align-content: auto; align-self: stretch; padding-right: 2%;">
+                <engine:Label text="Coding/Modeling" name="Role1Label" class="base-text credits-text-size" style="justify-content: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                <engine:Label text="Sound/Level Design" name="Role2Label" class="base-text credits-text-size" style="justify-content: center; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                <engine:Label text="Modeling" name="Role3Label" class="base-text credits-text-size" style="justify-content: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                <engine:Label text="Coding" name="Role4Label" class="base-text credits-text-size" style="justify-content: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="NamesContainer" style="flex-grow: 1; align-items: flex-start; align-self: stretch; justify-content: space-evenly; align-content: auto; padding-left: 2%;">
+                <engine:Label text="Cedric Steiert" name="Name1Label" class="credits-text-size base-text" style="justify-content: center; align-items: center; align-self: auto; align-content: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                <engine:Label text="David Kapfer" name="Name2Label" class="credits-text-size base-text" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                <engine:Label text="Jake Best" name="Name3Label" class="credits-text-size base-text" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                <engine:Label text="Nicolas Brückner" name="Name4Label" class="base-text credits-text-size" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+            </engine:VisualElement>
         </engine:VisualElement>
-        <engine:VisualElement name="CreditsContainer" style="flex-grow: 1; justify-content: flex-start; align-items: center; align-self: flex-start; align-content: stretch;">
-            <engine:VisualElement name="Credits_1_Container" style="flex-grow: 1; flex-direction: row;">
-                <engine:Label text="Role" name="RoleLabel" />
-                <engine:Label text="Cedric Steiert" name="NameLabel" />
-            </engine:VisualElement>
-            <engine:VisualElement name="Credits_2_Container" style="flex-grow: 1; flex-direction: row;">
-                <engine:Label text="Role" name="RoleLabel" />
-                <engine:Label text="David Kapfer" name="NameLabel" />
-            </engine:VisualElement>
-            <engine:VisualElement name="Credits_3_Container" style="flex-grow: 1; flex-direction: row;">
-                <engine:Label text="Role" name="RoleLabel" />
-                <engine:Label text="Jake Best" name="NameLabel" />
-            </engine:VisualElement>
-            <engine:VisualElement name="Credits_4_Container" style="flex-grow: 1; flex-direction: row;">
-                <engine:Label text="Role" name="RoleLabel" />
-                <engine:Label text="Nicolas Brückner" name="NameLabel" />
-            </engine:VisualElement>
+        <engine:VisualElement name="BackButtonContainer" style="flex-grow: 1; align-self: stretch; justify-content: flex-end; height: 10%; padding-left: 30%; padding-right: 30%;">
+            <engine:Button text="Back" name="BackButton" class="base-button base-text" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

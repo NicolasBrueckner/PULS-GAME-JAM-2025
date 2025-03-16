@@ -1,8 +1,11 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement name="Background" style="flex-grow: 1;">
-        <engine:VisualElement style="flex-grow: 1;">
-            <engine:Label text="Spiel pausiert :/" style="-unity-text-align: middle-center; height: 398px;" />
+    <Style src="project://database/Assets/UI/StyleSheets.uss?fileID=7433441132597879392&amp;guid=46c68ae4ecdf07c4bb51768b2303da88&amp;type=3#StyleSheets" />
+    <engine:VisualElement name="Background" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.75);">
+        <engine:VisualElement name="MessageContainer" style="flex-grow: 1;">
+            <engine:Label text="Game Paused :/" name="MessageLabel" class="base-text" style="-unity-text-align: middle-center; height: 398px; font-size: 80%;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="ButtonContainer" style="flex-grow: 1; padding-left: 30%; padding-right: 30%;">
+            <engine:Button text="Back" name="BackButton" class="base-text base-button" style="padding-left: 0;" />
         </engine:VisualElement>
     </engine:VisualElement>
-    <engine:Button text="Zurück" name="BackButton" />
 </engine:UXML>

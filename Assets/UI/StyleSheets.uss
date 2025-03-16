@@ -1,0 +1,56 @@
+.base-button {
+    background-image: url("project://database/Assets/Materials/Textures/metalbutton.jpg?fileID=2800000&guid=1219b9ecda12b974baf6f9ede6645a90&type=3#metalbutton");
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    border-left-color: rgba(137, 137, 137, 0.39);
+    border-right-color: rgba(137, 137, 137, 0.39);
+    border-top-color: rgba(137, 137, 137, 0.39);
+    border-bottom-color: rgba(137, 137, 137, 0.39);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    flex-grow: 1;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -unity-background-scale-mode: stretch-to-fill;
+    background-position-y: center 0;
+    background-position-x: center 0;
+}
+
+.base-button:hover {
+    background-color: rgba(140, 45, 54, 0.31);
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+}
+
+.menu-screen {
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.base-text {
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UI/Pixel%20Bug.otf?fileID=12800000&guid=736183a624308144da6645babe5f3c1e&type=3#Pixel Bug');
+    -unity-font-definition: url("project://database/Assets/UI/Pixel%20Bug.otf?fileID=12800000&guid=6f36dc78841aea44d88a7447b20396e0&type=3#Pixel Bug");
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+    -unity-text-outline-width: 0;
+    -unity-text-outline-color: rgb(0, 0, 0);
+    text-shadow: 5px 5px 2px rgba(0, 0, 0, 0.59);
+    letter-spacing: 1px;
+    word-spacing: -15px;
+}
+
+.credits-text-size {
+    font-size: 182%;
+}

@@ -11,6 +11,7 @@ public class GameplayEventManager : MonoBehaviour
 	public static GameplayEventManager Instance;
 
 	public event Action GameStarted;
+	public event Action GameWon;
 	public event Action GameEnded;
 	public event Action PlayerHit;
 	public event Action PlayerHeal;
@@ -25,6 +26,7 @@ public class GameplayEventManager : MonoBehaviour
 	}
 
 	public void OnGameStarted()                                 => GameStarted?.Invoke();
+	public void OnGameWon()                                     => GameWon?.Invoke();
 	public void OnGameEnded()                                   => GameEnded?.Invoke();
 	public void OnPlayerHit()                                   => PlayerHit?.Invoke();
 	public void OnPlayerHeal()                                  => PlayerHeal?.Invoke();

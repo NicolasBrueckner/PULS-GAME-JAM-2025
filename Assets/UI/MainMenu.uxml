@@ -1,12 +1,13 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement name="Background" style="flex-grow: 1;">
-        <engine:VisualElement name="TitleContainer" style="flex-grow: 1; justify-content: center; align-items: center; align-content: auto; font-size: 30px;">
-            <engine:Label text="Game Jam Project" name="TitleLabel" />
+    <Style src="project://database/Assets/UI/StyleSheets.uss?fileID=7433441132597879392&amp;guid=46c68ae4ecdf07c4bb51768b2303da88&amp;type=3" />
+    <engine:VisualElement name="Background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Materials/Textures/close-up-photography-negative.jpg?fileID=2800000&amp;guid=adb7bfb4518280d46bc4f00e64c29c20&amp;type=3#close-up-photography-negative&quot;);">
+        <engine:VisualElement name="TitleContainer" style="flex-grow: 0; justify-content: center; align-items: center; align-content: auto; font-size: 30px; flex-shrink: 0; height: 30%;">
+            <engine:Label text="Game Jam Project" name="TitleLabel" class="base-text" style="font-size: 50%;" />
         </engine:VisualElement>
-        <engine:VisualElement name="ButtonContainer" style="flex-grow: 1; align-content: auto; align-self: stretch; justify-content: center; padding-right: 20%; padding-left: 20%;">
-            <engine:Button text="Start Game" name="StartButton" style="align-content: auto;" />
-            <engine:Button text="Credits" name="CreditsButton" />
-            <engine:Button text="Exit" name="ExitButton" />
+        <engine:VisualElement name="ButtonContainer" style="flex-grow: 0; align-content: auto; align-self: stretch; justify-content: center; padding-right: 20%; padding-left: 20%; flex-shrink: 0; height: 70%;">
+            <engine:Button text="Start Game" name="StartButton" class="base-button base-text" style="align-content: auto; font-size: 20%; -unity-background-scale-mode: stretch-to-fill;" />
+            <engine:Button text="Credits" name="CreditsButton" class="base-button base-text" style="font-size: 20%;" />
+            <engine:Button text="Exit" name="ExitButton" class="base-button base-text" style="font-size: 20%;" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>
