@@ -5,10 +5,8 @@ using static Kaputt;
 
 #endregion
 
-public class ObstacleBehaviour : MonoBehaviour, IDestroyable
+public class WinEndBehaviour : MonoBehaviour
 {
-	public bool hasHealthUp;
-	public GameObject healEffect;
 
 	private LayerMask _playerLayer;
 
@@ -16,8 +14,6 @@ public class ObstacleBehaviour : MonoBehaviour, IDestroyable
 
 	private void Start()
 	{
-		if (healEffect == null) return;
-		healEffect?.SetActive( hasHealthUp );
 	}
 
 	private void Awake()
@@ -29,16 +25,8 @@ public class ObstacleBehaviour : MonoBehaviour, IDestroyable
 	{
 		if( !IsInLayerMask( other.gameObject, _playerLayer ) )
 			return;
-		Debug.Log( "player should take damage" );
+		Debug.Log( "player should win" );
 
-		_gem.OnPlayerHit();
-	}
-
-	public void DestroyInterfaceMember()
-	{
-		if( hasHealthUp )
-			_gem.OnPlayerHeal();
-
-		gameObject.SetActive( false );
+		_gem.OnGameWon();
 	}
 }
