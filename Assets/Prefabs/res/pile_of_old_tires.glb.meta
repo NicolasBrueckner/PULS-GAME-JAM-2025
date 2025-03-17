@@ -1,7 +1,82 @@
 fileFormatVersion: 2
 guid: 22a52769779414445a34a30cfd4d55ae
-DefaultImporter:
+ScriptedImporter:
+  internalIDToNameTable: []
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+  script: {fileID: 11500000, guid: 804e1ce4c496647cfa3f1a1134187c71, type: 3}
+  _removeEmptyRootObjects: 1
+  _scaleFactor: 1
+  _deduplicateResources: 0
+  _maximumLod: 300
+  _readWriteEnabled: 1
+  _generateColliders: 0
+  _swapUvs: 0
+  _generateLightmapUVs: 0
+  _importBlendShapeNames: 1
+  _blendShapeFrameWeight:
+    _option: 0
+    _multiplier: 1
+  _importNormals: 0
+  _importTangents: 2
+  _importCamera: 2
+  _importAnimations: 2
+  _mecanimHumanoidFlip: 0
+  _addAnimatorComponent: 0
+  _animationLoopTime: 1
+  _animationLoopPose: 0
+  _importMaterials: 1
+  _enableGpuInstancing: 0
+  _texturesReadWriteEnabled: 0
+  _generateMipMaps: 0
+  _useSceneNameIdentifier: 0
+  _textureCompression: 0
+  _gltfAsset: '<b>Generator: </b>Khronos glTF Blender I/O v4.2.83
+
+    <b>Version:
+    </b>2.0
+
+'
+  optimizeGameObjects: 0
+  materials:
+  - {fileID: 2684383661633555803, guid: 22a52769779414445a34a30cfd4d55ae, type: 3}
+  - {fileID: -1002524831010845626, guid: 22a52769779414445a34a30cfd4d55ae, type: 3}
+  - {fileID: 5589852890221712851, guid: 22a52769779414445a34a30cfd4d55ae, type: 3}
+  - {fileID: -4261553662286982732, guid: 22a52769779414445a34a30cfd4d55ae, type: 3}
+  textures:
+  - {fileID: 8356977545115736127, guid: 22a52769779414445a34a30cfd4d55ae, type: 3}
+  - {fileID: 7876530471615878255, guid: 22a52769779414445a34a30cfd4d55ae, type: 3}
+  - {fileID: -3926687174140238800, guid: 22a52769779414445a34a30cfd4d55ae, type: 3}
+  - {fileID: 5817316546618748719, guid: 22a52769779414445a34a30cfd4d55ae, type: 3}
+  hasSceneData: 1
+  hasAnimationData: 0
+  hasMaterialData: 1
+  hasTextureData: 1
+  animations: []
+  _extensions:
+  - name: KHR_draco_mesh_compression
+    supported: 1
+    used: 1
+    required: 1
+  - name: KHR_materials_unlit
+    supported: 1
+    used: 1
+    required: 0
+  _textures:
+  - texture: {fileID: 8356977545115736127, guid: 22a52769779414445a34a30cfd4d55ae, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 7876530471615878255, guid: 22a52769779414445a34a30cfd4d55ae, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -3926687174140238800, guid: 22a52769779414445a34a30cfd4d55ae, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 5817316546618748719, guid: 22a52769779414445a34a30cfd4d55ae, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  _mainAssetIdentifier: main asset
+  _importPlugins: []
