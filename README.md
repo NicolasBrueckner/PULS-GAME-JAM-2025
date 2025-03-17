@@ -19,13 +19,16 @@ You play a little robot that is falling apart and loses his abilities with every
 
 - WASD-Movement
 - Q - Shockwave: Destroys trash in a small radius around the player
-- Strg - Bash/Dash: You become faster and destroy your surroundings... Until you lose your  shield, then you only become faster
+- Shift - Bash/Dash: You become faster and destroy your surroundings... Until you lose your  shield, then you only become faster
 
 -----
 
 This small game was created in Unity 6 for the first "Puls GameJam" from Bayrischer Rundfunk: https://itch.io/jam/puls-game-jam/entries.
 
-Contributors:
+Play here: https://itch.io/jam/puls-game-jam/rate/3401521
+Download: https://github.com/NicolasBrueckner/PULS-GAME-JAM-2025/releases
+
+**Contributors:**
 - https://github.com/NicolasBrueckner/
 - https://github.com/BujusKrachus/
 - https://github.com/Mafake/
@@ -62,3 +65,11 @@ Effects:
 Sound:
 
 - Game Master Audio: "pro-sound-collection" 
+
+-----
+
+**License**
+
+CC BY-NC-SA 4.0: Attribution-NonCommercial-ShareAlike 4.0 International
+
+If you need any further use, reach out to us. This repo may not be used for AI training purposes.
