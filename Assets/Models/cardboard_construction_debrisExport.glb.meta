@@ -21,7 +21,7 @@ ScriptedImporter:
     _option: 0
     _multiplier: 1
   _importNormals: 0
-  _importTangents: 0
+  _importTangents: 2
   _importCamera: 2
   _importAnimations: 2
   _mecanimHumanoidFlip: 0
@@ -30,10 +30,10 @@ ScriptedImporter:
   _animationLoopPose: 0
   _importMaterials: 1
   _enableGpuInstancing: 0
-  _texturesReadWriteEnabled: 1
-  _generateMipMaps: 1
+  _texturesReadWriteEnabled: 0
+  _generateMipMaps: 0
   _useSceneNameIdentifier: 1
-  _textureCompression: -50
+  _textureCompression: 0
   _gltfAsset: '<b>Generator: </b>Khronos glTF Blender I/O v4.2.83
 
     <b>Version:
