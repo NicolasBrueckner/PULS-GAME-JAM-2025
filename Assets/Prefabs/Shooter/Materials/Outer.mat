@@ -34,7 +34,7 @@ Material:
   - _FLIPBOOKBLENDING_OFF
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
+  m_DoubleSidedGI: 1
   m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
@@ -129,7 +129,7 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _ColorMode: 1
-    - _Cull: 2
+    - _Cull: 0
     - _Cutoff: 0.256
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
@@ -169,14 +169,14 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.8862745, g: 0.8862745, b: 0.8862745, a: 0.9098039}
+    - _BaseColor: {r: 0.41099998, g: 0, b: 0, a: 0.2627451}
     - _BaseColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0.8862745, g: 0.8862745, b: 0.8862745, a: 0.9098039}
-    - _EmissionColor: {r: 1, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.41099995, g: 0, b: 0, a: 0.2627451}
+    - _EmissionColor: {r: 12.483965, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
-    - _SpecColor: {r: 1, g: 0.29354292, b: 0, a: 0.25}
+    - _SpecColor: {r: 0.9339623, g: 0.8883621, b: 0.2863564, a: 0.25}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

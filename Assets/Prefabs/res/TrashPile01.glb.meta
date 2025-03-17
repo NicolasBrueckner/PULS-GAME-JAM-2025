@@ -21,7 +21,7 @@ ScriptedImporter:
     _option: 0
     _multiplier: 1
   _importNormals: 0
-  _importTangents: 0
+  _importTangents: 2
   _importCamera: 2
   _importAnimations: 2
   _mecanimHumanoidFlip: 0
@@ -30,10 +30,10 @@ ScriptedImporter:
   _animationLoopPose: 0
   _importMaterials: 1
   _enableGpuInstancing: 0
-  _texturesReadWriteEnabled: 1
-  _generateMipMaps: 1
+  _texturesReadWriteEnabled: 0
+  _generateMipMaps: 0
   _useSceneNameIdentifier: 1
-  _textureCompression: -50
+  _textureCompression: 0
   _gltfAsset: '<b>Generator: </b>Khronos glTF Blender I/O v4.2.83
 
     <b>Version:
@@ -42,10 +42,10 @@ ScriptedImporter:
 '
   optimizeGameObjects: 0
   materials:
-  - {instanceID: 0}
+  - {fileID: -6478536213147159724, guid: f850fc6711a8417468e11a6906b7b79e, type: 3}
   textures:
-  - {instanceID: 0}
-  - {instanceID: 0}
+  - {fileID: 4353426471328040243, guid: f850fc6711a8417468e11a6906b7b79e, type: 3}
+  - {fileID: 2690372031572394977, guid: f850fc6711a8417468e11a6906b7b79e, type: 3}
   hasSceneData: 1
   hasAnimationData: 0
   hasMaterialData: 1
@@ -57,10 +57,10 @@ ScriptedImporter:
     used: 1
     required: 1
   _textures:
-  - texture: {instanceID: 0}
+  - texture: {fileID: 4353426471328040243, guid: f850fc6711a8417468e11a6906b7b79e, type: 3}
     shouldBeLinear: 1
     shouldBeNormalMap: 1
-  - texture: {instanceID: 0}
+  - texture: {fileID: 2690372031572394977, guid: f850fc6711a8417468e11a6906b7b79e, type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
   _mainAssetIdentifier: scenes/Scene
