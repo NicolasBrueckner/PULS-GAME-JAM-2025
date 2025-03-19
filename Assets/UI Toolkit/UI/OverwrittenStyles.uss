@@ -1,0 +1,4 @@
+.unity-base-slider__tracker {
+    background-image: url("project://database/Assets/Models/ProtagRobo_gltf.gltf?fileID=1904515420032526791&guid=57352c0d8b2243249b0e0f898e8d09d0&type=3#+wP+C96kPg5Y8UyLAAAAAElFTkSuQmCC");
+    -unity-background-scale-mode: scale-to-fit;
+}

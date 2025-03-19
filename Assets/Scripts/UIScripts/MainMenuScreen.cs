@@ -34,10 +34,9 @@ public class MainMenuScreen : MenuScreen
 		_quitButton.clicked += OnQuitButtonClicked;
 	}
 
-	private void OnStartButtonClicked()
+	private static void OnStartButtonClicked()
 	{
 		GameplayEventManager.Instance.OnGameStarted();
-		MenuScreenController.ToggleScreen( MenuScreenType.HUD );
 	}
 
 	private void OnCreditsButtonClicked()
@@ -45,7 +44,7 @@ public class MainMenuScreen : MenuScreen
 		MenuScreenController.ToggleScreen( MenuScreenType.Credits );
 	}
 
-	private void OnQuitButtonClicked()
+	private static void OnQuitButtonClicked()
 	{
 		Application.Quit();
 	}

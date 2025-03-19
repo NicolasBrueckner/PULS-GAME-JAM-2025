@@ -1,11 +1,12 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/UI/StyleSheets.uss?fileID=7433441132597879392&amp;guid=46c68ae4ecdf07c4bb51768b2303da88&amp;type=3#StyleSheets" />
     <engine:VisualElement name="Background" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.75);">
-        <engine:VisualElement name="MessageContainer" style="flex-grow: 1;">
-            <engine:Label text="Game Paused :/" name="MessageLabel" class="base-text" style="-unity-text-align: middle-center; height: 398px; font-size: 80%;" />
+        <engine:VisualElement name="MessageContainer" style="flex-grow: 1; height: 75%;">
+            <engine:Label text="Game Paused :/" name="MessageLabel" class="base-text" style="-unity-text-align: middle-center; height: 398px; font-size: 80%; margin-top: 4px; margin-right: 4px; margin-bottom: 2px; margin-left: 2px;" />
         </engine:VisualElement>
-        <engine:VisualElement name="ButtonContainer" style="flex-grow: 1; padding-left: 30%; padding-right: 30%;">
-            <engine:Button text="Back" name="BackButton" class="base-text base-button" style="padding-left: 0; font-size: 25%;" />
+        <engine:VisualElement name="ButtonContainer" style="flex-grow: 1; padding-left: 35%; padding-right: 35%; align-self: stretch; justify-content: space-between; align-items: stretch; align-content: auto; height: 25%;">
+            <engine:Button text="Main Menu" name="MainMenuButton" class="base-button base-text" style="height: 48%; font-size: 25%;" />
+            <engine:Button text="Back" name="BackButton" class="base-text base-button" style="padding-left: 0; font-size: 25%; height: 48%;" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

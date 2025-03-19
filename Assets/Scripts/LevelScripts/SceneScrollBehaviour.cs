@@ -65,20 +65,21 @@ public class SceneScrollManager : MonoBehaviour
 		float speedFactor = Mathf.InverseLerp( initialLevelPosition.x, screenWidth, playerX );
 		float scrollSpeed = Mathf.Lerp( minLevelScrollSpeed, maxLevelScrollSpeed, speedFactor );
 
-		if( movementInput.x > 0 || minLevelScrollSpeed > 0 )
-		{
-            dampLevel0.transform.position -= new Vector3(scrollSpeed * (1.0f) * Time.deltaTime, 0, 0);
-            dampLevel1.transform.position -= new Vector3(scrollSpeed * (1.0f - dampingFactor) * Time.deltaTime, 0, 0);
-            dampLevel2.transform.position -= new Vector3(scrollSpeed * (1.0f - 2 * dampingFactor) * Time.deltaTime, 0, 0);
-            dampLevel3.transform.position -= new Vector3(scrollSpeed * (1.0f - 3 * dampingFactor) * Time.deltaTime, 0, 0);
-        }
+		if( !( movementInput.x > 0 ) && !( minLevelScrollSpeed > 0 ) )
+			return;
+
+		dampLevel0.transform.position -= new Vector3( scrollSpeed * 1.0f * Time.deltaTime, 0, 0 );
+		dampLevel1.transform.position -= new Vector3( scrollSpeed * ( 1.0f - dampingFactor ) * Time.deltaTime, 0, 0 );
+		dampLevel2.transform.position -=
+			new Vector3( scrollSpeed * ( 1.0f - 2 * dampingFactor ) * Time.deltaTime, 0, 0 );
+		dampLevel3.transform.position -=
+			new Vector3( scrollSpeed * ( 1.0f - 3 * dampingFactor ) * Time.deltaTime, 0, 0 );
 	}
 
 	private bool ClampLevelToExit()
 	{
 		float exitScreenEdge = mainCamera.transform.position.x + screenWidth - screenPadding;
-		if( levelExit.position.x < exitScreenEdge ) return true;
-		return false;
+		return levelExit.position.x < exitScreenEdge;
 	}
 
 	private void OnMovePerformedReceived( InputAction.CallbackContext ctx )

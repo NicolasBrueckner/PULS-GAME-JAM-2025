@@ -1,21 +1,23 @@
+#region
+
 using UnityEngine.UIElements;
+
+#endregion
 
 public class WinMenuScreen : MenuScreen
 {
 	private Button _mainMenuButton;
-	
+
 	public WinMenuScreen( VisualTreeAsset asset, MenuScreenType type, MenuScreenController controller ) : base( asset,
 		type, controller )
 	{
 	}
 
-	private static GameplayEventManager _gem => GameplayEventManager.Instance;
-
 	protected override void GetElements()
 	{
 		base.GetElements();
-		
-		_mainMenuButton=Root.Q<Button>( "MainMenuButton" );
+
+		_mainMenuButton = Root.Q<Button>( "MainMenuButton" );
 	}
 
 	protected override void BindElements()
@@ -27,14 +29,15 @@ public class WinMenuScreen : MenuScreen
 
 	private void OnMainMenuButtonClicked()
 	{
-		_gem.OnGameEnded();
+		GameplayEventManager.Instance.OnGameEnded();
+		MenuScreenController.ToggleScreen( MenuScreenType.Main );
 	}
 
 	protected override void BindEvents()
 	{
 		base.BindEvents();
 
-		_gem.GameWon += OnGameWon;
+		GameplayEventManager.Instance.GameWon += OnGameWon;
 	}
 
 	private void OnGameWon()

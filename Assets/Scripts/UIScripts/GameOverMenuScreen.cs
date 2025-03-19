@@ -16,9 +16,6 @@ public class GameOverMenuScreen : MenuScreen
 	{
 	}
 
-	private static GameplayEventManager _gem => GameplayEventManager.Instance;
-
-
 	protected override void GetElements()
 	{
 		base.GetElements();
@@ -44,12 +41,13 @@ public class GameOverMenuScreen : MenuScreen
 
 	private void OnMainMenuButtonClicked()
 	{
-		_gem.OnGameEnded();
+		GameplayEventManager.Instance.OnGameEnded();
+		MenuScreenController.ToggleScreen( MenuScreenType.Main );
 	}
 
 	private void OnRestartButtonClicked()
 	{
-		_gem.OnGameStarted();
+		GameplayEventManager.Instance.OnGameStarted();
 		MenuScreenController.ToggleScreen( MenuScreenType.HUD );
 	}
 
@@ -57,7 +55,7 @@ public class GameOverMenuScreen : MenuScreen
 	{
 		base.BindEvents();
 
-		_gem.PlayerDead += OnPlayerDead;
+		GameplayEventManager.Instance.PlayerDead += OnPlayerDead;
 	}
 
 	private void OnPlayerDead()

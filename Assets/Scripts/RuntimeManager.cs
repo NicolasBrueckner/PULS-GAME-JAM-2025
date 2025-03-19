@@ -10,8 +10,8 @@ public class RuntimeManager : MonoBehaviour
 {
 	private static RuntimeManager Instance{ get; set; }
 
-	public string runtimeSceneName;
-	public string emptySceneName;
+	public int initSceneIndex;
+	public int mainSceneIndex;
 
 	private static GameplayEventManager _gem => GameplayEventManager.Instance;
 
@@ -26,11 +26,11 @@ public class RuntimeManager : MonoBehaviour
 
 	private void OnGameEnded()
 	{
-		SceneManager.LoadScene( emptySceneName );
+		SceneManager.LoadScene( initSceneIndex, LoadSceneMode.Single );
 	}
 
 	private void OnGameStarted()
 	{
-		SceneManager.LoadScene( runtimeSceneName );
+		SceneManager.LoadScene( mainSceneIndex, LoadSceneMode.Single );
 	}
 }
